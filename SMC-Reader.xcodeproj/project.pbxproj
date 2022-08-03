@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05BD469E289ACB9E00F4FF16 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD469D289ACB9E00F4FF16 /* ApplicationDelegate.swift */; };
+		05BD46A3289ACB9E00F4FF16 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BD46A1289ACB9E00F4FF16 /* MainMenu.xib */; };
+		05BD46EA289ACF2900F4FF16 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46E9289ACF2900F4FF16 /* MainWindowController.swift */; };
+		05BD46ED289ACF9E00F4FF16 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BD46EF289ACF9E00F4FF16 /* MainWindowController.xib */; };
+		05BD46F2289ACFD900F4FF16 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BD46F0289ACFD900F4FF16 /* AboutWindowController.xib */; };
+		05BD46F4289ACFDF00F4FF16 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46F3289ACFDF00F4FF16 /* AboutWindowController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		05BD469A289ACB9E00F4FF16 /* SMC Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SMC Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05BD469D289ACB9E00F4FF16 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
+		05BD46A2289ACB9E00F4FF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		05BD46A4289ACB9E00F4FF16 /* SMC-Reader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SMC-Reader.entitlements"; sourceTree = "<group>"; };
+		05BD46AA289ACC2F00F4FF16 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		05BD46AD289ACC4600F4FF16 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
+		05BD46AE289ACC4600F4FF16 /* Release - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - ccache.xcconfig"; sourceTree = "<group>"; };
+		05BD46AF289ACC4600F4FF16 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		05BD46B0289ACC4600F4FF16 /* Debug - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - ccache.xcconfig"; sourceTree = "<group>"; };
+		05BD46B1289ACC4600F4FF16 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		05BD46B2289ACC4600F4FF16 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		05BD46B3289ACC4600F4FF16 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		05BD46B4289ACC4600F4FF16 /* Release - Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - Library.xcconfig"; sourceTree = "<group>"; };
+		05BD46B6289ACC4600F4FF16 /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
+		05BD46B7289ACC4600F4FF16 /* Architectures.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Architectures.xcconfig; sourceTree = "<group>"; };
+		05BD46B9289ACC4600F4FF16 /* Issues.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Issues.xcconfig; sourceTree = "<group>"; };
+		05BD46BB289ACC4600F4FF16 /* Apple-APIs.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Apple-APIs.xcconfig"; sourceTree = "<group>"; };
+		05BD46BC289ACC4600F4FF16 /* Generic-Issues.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Generic-Issues.xcconfig"; sourceTree = "<group>"; };
+		05BD46BD289ACC4600F4FF16 /* Security.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Security.xcconfig; sourceTree = "<group>"; };
+		05BD46BE289ACC4600F4FF16 /* Objective-C.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Objective-C.xcconfig"; sourceTree = "<group>"; };
+		05BD46BF289ACC4600F4FF16 /* Analysis-Policy.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Analysis-Policy.xcconfig"; sourceTree = "<group>"; };
+		05BD46C0289ACC4600F4FF16 /* Deployment.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Deployment.xcconfig; sourceTree = "<group>"; };
+		05BD46C1289ACC4600F4FF16 /* Build-Options.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Build-Options.xcconfig"; sourceTree = "<group>"; };
+		05BD46C2289ACC4600F4FF16 /* Swift-Compiler.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Swift-Compiler.xcconfig"; sourceTree = "<group>"; };
+		05BD46C3289ACC4600F4FF16 /* Static-Analyzer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Static-Analyzer.xcconfig"; sourceTree = "<group>"; };
+		05BD46C5289ACC4600F4FF16 /* Warnings-Policies.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Warnings-Policies.xcconfig"; sourceTree = "<group>"; };
+		05BD46C6289ACC4600F4FF16 /* Code-Generation.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Code-Generation.xcconfig"; sourceTree = "<group>"; };
+		05BD46C7289ACC4600F4FF16 /* Language.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Language.xcconfig; sourceTree = "<group>"; };
+		05BD46C8289ACC4600F4FF16 /* General.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = General.xcconfig; sourceTree = "<group>"; };
+		05BD46C9289ACC4600F4FF16 /* Search-Paths.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Search-Paths.xcconfig"; sourceTree = "<group>"; };
+		05BD46CA289ACC4600F4FF16 /* Apple-LLVM.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Apple-LLVM.xcconfig"; sourceTree = "<group>"; };
+		05BD46CD289ACC4600F4FF16 /* Modules.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Modules.xcconfig; sourceTree = "<group>"; };
+		05BD46CE289ACC4600F4FF16 /* Objective-C.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Objective-C.xcconfig"; sourceTree = "<group>"; };
+		05BD46CF289ACC4600F4FF16 /* C++.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "C++.xcconfig"; sourceTree = "<group>"; };
+		05BD46D0289ACC4600F4FF16 /* Code-Generation.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Code-Generation.xcconfig"; sourceTree = "<group>"; };
+		05BD46D1289ACC4600F4FF16 /* Address-Sanitizer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Address-Sanitizer.xcconfig"; sourceTree = "<group>"; };
+		05BD46D2289ACC4600F4FF16 /* Language.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Language.xcconfig; sourceTree = "<group>"; };
+		05BD46D3289ACC4600F4FF16 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
+		05BD46D4289ACC4600F4FF16 /* Undefined-Behavior-Sanitizer.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Undefined-Behavior-Sanitizer.xcconfig"; sourceTree = "<group>"; };
+		05BD46D5289ACC4600F4FF16 /* Warning-Policies.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Warning-Policies.xcconfig"; sourceTree = "<group>"; };
+		05BD46D7289ACC4600F4FF16 /* Objective-C-ARC.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Objective-C-ARC.xcconfig"; sourceTree = "<group>"; };
+		05BD46D8289ACC4600F4FF16 /* Objective-C.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Objective-C.xcconfig"; sourceTree = "<group>"; };
+		05BD46D9289ACC4600F4FF16 /* C++.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "C++.xcconfig"; sourceTree = "<group>"; };
+		05BD46DA289ACC4600F4FF16 /* All-Languages.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "All-Languages.xcconfig"; sourceTree = "<group>"; };
+		05BD46DB289ACC4600F4FF16 /* Preprocessing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Preprocessing.xcconfig; sourceTree = "<group>"; };
+		05BD46DC289ACC4600F4FF16 /* Debug - Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - Library.xcconfig"; sourceTree = "<group>"; };
+		05BD46DD289ACC4600F4FF16 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		05BD46DF289ACC4600F4FF16 /* ccache-config.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "ccache-config.sh"; sourceTree = "<group>"; };
+		05BD46E0289ACC4600F4FF16 /* ccache.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ccache.sh; sourceTree = "<group>"; };
+		05BD46E2289ACC4600F4FF16 /* FUNDING.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = FUNDING.yml; sourceTree = "<group>"; };
+		05BD46E3289ACC4600F4FF16 /* Debug - zld.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - zld.xcconfig"; sourceTree = "<group>"; };
+		05BD46E6289ACD6400F4FF16 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		05BD46E7289ACD6400F4FF16 /* CODE_OF_CONDUCT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODE_OF_CONDUCT.md; sourceTree = "<group>"; };
+		05BD46E8289ACD7900F4FF16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05BD46E9289ACF2900F4FF16 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		05BD46EE289ACF9E00F4FF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainWindowController.xib; sourceTree = "<group>"; };
+		05BD46F1289ACFD900F4FF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AboutWindowController.xib; sourceTree = "<group>"; };
+		05BD46F3289ACFDF00F4FF16 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05BD4697289ACB9E00F4FF16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05BD4691289ACB9E00F4FF16 = {
+			isa = PBXGroup;
+			children = (
+				05BD46AA289ACC2F00F4FF16 /* README.md */,
+				05BD46E7289ACD6400F4FF16 /* CODE_OF_CONDUCT.md */,
+				05BD46E6289ACD6400F4FF16 /* LICENSE */,
+				05BD46AC289ACC4600F4FF16 /* xcconfig */,
+				05BD469C289ACB9E00F4FF16 /* SMC-Reader */,
+				05BD469B289ACB9E00F4FF16 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		05BD469B289ACB9E00F4FF16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05BD469A289ACB9E00F4FF16 /* SMC Reader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05BD469C289ACB9E00F4FF16 /* SMC-Reader */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46E4289ACC4B00F4FF16 /* Classes */,
+				05BD46E5289ACD2800F4FF16 /* UI */,
+				05BD46E8289ACD7900F4FF16 /* Info.plist */,
+				05BD46A4289ACB9E00F4FF16 /* SMC-Reader.entitlements */,
+			);
+			path = "SMC-Reader";
+			sourceTree = "<group>";
+		};
+		05BD46AC289ACC4600F4FF16 /* xcconfig */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46AD289ACC4600F4FF16 /* CODE_OF_CONDUCT.md */,
+				05BD46AE289ACC4600F4FF16 /* Release - ccache.xcconfig */,
+				05BD46AF289ACC4600F4FF16 /* Common.xcconfig */,
+				05BD46B0289ACC4600F4FF16 /* Debug - ccache.xcconfig */,
+				05BD46B1289ACC4600F4FF16 /* Debug.xcconfig */,
+				05BD46B2289ACC4600F4FF16 /* Release.xcconfig */,
+				05BD46B3289ACC4600F4FF16 /* README.md */,
+				05BD46B4289ACC4600F4FF16 /* Release - Library.xcconfig */,
+				05BD46B5289ACC4600F4FF16 /* Common */,
+				05BD46DC289ACC4600F4FF16 /* Debug - Library.xcconfig */,
+				05BD46DD289ACC4600F4FF16 /* .gitignore */,
+				05BD46DE289ACC4600F4FF16 /* Scripts */,
+				05BD46E1289ACC4600F4FF16 /* .github */,
+				05BD46E3289ACC4600F4FF16 /* Debug - zld.xcconfig */,
+			);
+			name = xcconfig;
+			path = Submodules/xcconfig;
+			sourceTree = "<group>";
+		};
+		05BD46B5289ACC4600F4FF16 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46B6289ACC4600F4FF16 /* Signing.xcconfig */,
+				05BD46B7289ACC4600F4FF16 /* Architectures.xcconfig */,
+				05BD46B8289ACC4600F4FF16 /* Static-Analyzer */,
+				05BD46C0289ACC4600F4FF16 /* Deployment.xcconfig */,
+				05BD46C1289ACC4600F4FF16 /* Build-Options.xcconfig */,
+				05BD46C2289ACC4600F4FF16 /* Swift-Compiler.xcconfig */,
+				05BD46C3289ACC4600F4FF16 /* Static-Analyzer.xcconfig */,
+				05BD46C4289ACC4600F4FF16 /* Swift-Compiler */,
+				05BD46C9289ACC4600F4FF16 /* Search-Paths.xcconfig */,
+				05BD46CA289ACC4600F4FF16 /* Apple-LLVM.xcconfig */,
+				05BD46CB289ACC4600F4FF16 /* Apple-LLVM */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		05BD46B8289ACC4600F4FF16 /* Static-Analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46B9289ACC4600F4FF16 /* Issues.xcconfig */,
+				05BD46BA289ACC4600F4FF16 /* Issues */,
+			);
+			path = "Static-Analyzer";
+			sourceTree = "<group>";
+		};
+		05BD46BA289ACC4600F4FF16 /* Issues */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46BB289ACC4600F4FF16 /* Apple-APIs.xcconfig */,
+				05BD46BC289ACC4600F4FF16 /* Generic-Issues.xcconfig */,
+				05BD46BD289ACC4600F4FF16 /* Security.xcconfig */,
+				05BD46BE289ACC4600F4FF16 /* Objective-C.xcconfig */,
+				05BD46BF289ACC4600F4FF16 /* Analysis-Policy.xcconfig */,
+			);
+			path = Issues;
+			sourceTree = "<group>";
+		};
+		05BD46C4289ACC4600F4FF16 /* Swift-Compiler */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46C5289ACC4600F4FF16 /* Warnings-Policies.xcconfig */,
+				05BD46C6289ACC4600F4FF16 /* Code-Generation.xcconfig */,
+				05BD46C7289ACC4600F4FF16 /* Language.xcconfig */,
+				05BD46C8289ACC4600F4FF16 /* General.xcconfig */,
+			);
+			path = "Swift-Compiler";
+			sourceTree = "<group>";
+		};
+		05BD46CB289ACC4600F4FF16 /* Apple-LLVM */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46CC289ACC4600F4FF16 /* Language */,
+				05BD46D0289ACC4600F4FF16 /* Code-Generation.xcconfig */,
+				05BD46D1289ACC4600F4FF16 /* Address-Sanitizer.xcconfig */,
+				05BD46D2289ACC4600F4FF16 /* Language.xcconfig */,
+				05BD46D3289ACC4600F4FF16 /* Warnings.xcconfig */,
+				05BD46D4289ACC4600F4FF16 /* Undefined-Behavior-Sanitizer.xcconfig */,
+				05BD46D5289ACC4600F4FF16 /* Warning-Policies.xcconfig */,
+				05BD46D6289ACC4600F4FF16 /* Warnings */,
+				05BD46DB289ACC4600F4FF16 /* Preprocessing.xcconfig */,
+			);
+			path = "Apple-LLVM";
+			sourceTree = "<group>";
+		};
+		05BD46CC289ACC4600F4FF16 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46CD289ACC4600F4FF16 /* Modules.xcconfig */,
+				05BD46CE289ACC4600F4FF16 /* Objective-C.xcconfig */,
+				05BD46CF289ACC4600F4FF16 /* C++.xcconfig */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		05BD46D6289ACC4600F4FF16 /* Warnings */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46D7289ACC4600F4FF16 /* Objective-C-ARC.xcconfig */,
+				05BD46D8289ACC4600F4FF16 /* Objective-C.xcconfig */,
+				05BD46D9289ACC4600F4FF16 /* C++.xcconfig */,
+				05BD46DA289ACC4600F4FF16 /* All-Languages.xcconfig */,
+			);
+			path = Warnings;
+			sourceTree = "<group>";
+		};
+		05BD46DE289ACC4600F4FF16 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46DF289ACC4600F4FF16 /* ccache-config.sh */,
+				05BD46E0289ACC4600F4FF16 /* ccache.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		05BD46E1289ACC4600F4FF16 /* .github */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46E2289ACC4600F4FF16 /* FUNDING.yml */,
+			);
+			path = .github;
+			sourceTree = "<group>";
+		};
+		05BD46E4289ACC4B00F4FF16 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46F3289ACFDF00F4FF16 /* AboutWindowController.swift */,
+				05BD469D289ACB9E00F4FF16 /* ApplicationDelegate.swift */,
+				05BD46E9289ACF2900F4FF16 /* MainWindowController.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		05BD46E5289ACD2800F4FF16 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				05BD46F0289ACFD900F4FF16 /* AboutWindowController.xib */,
+				05BD46A1289ACB9E00F4FF16 /* MainMenu.xib */,
+				05BD46EF289ACF9E00F4FF16 /* MainWindowController.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05BD4699289ACB9E00F4FF16 /* SMC Reader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05BD46A7289ACB9E00F4FF16 /* Build configuration list for PBXNativeTarget "SMC Reader" */;
+			buildPhases = (
+				05BD4696289ACB9E00F4FF16 /* Sources */,
+				05BD4697289ACB9E00F4FF16 /* Frameworks */,
+				05BD4698289ACB9E00F4FF16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SMC Reader";
+			productName = "SMC Reader";
+			productReference = 05BD469A289ACB9E00F4FF16 /* SMC Reader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05BD4692289ACB9E00F4FF16 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					05BD4699289ACB9E00F4FF16 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 05BD4695289ACB9E00F4FF16 /* Build configuration list for PBXProject "SMC-Reader" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 05BD4691289ACB9E00F4FF16;
+			productRefGroup = 05BD469B289ACB9E00F4FF16 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05BD4699289ACB9E00F4FF16 /* SMC Reader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05BD4698289ACB9E00F4FF16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05BD46F2289ACFD900F4FF16 /* AboutWindowController.xib in Resources */,
+				05BD46ED289ACF9E00F4FF16 /* MainWindowController.xib in Resources */,
+				05BD46A3289ACB9E00F4FF16 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05BD4696289ACB9E00F4FF16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05BD46F4289ACFDF00F4FF16 /* AboutWindowController.swift in Sources */,
+				05BD46EA289ACF2900F4FF16 /* MainWindowController.swift in Sources */,
+				05BD469E289ACB9E00F4FF16 /* ApplicationDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		05BD46A1289ACB9E00F4FF16 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05BD46A2289ACB9E00F4FF16 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		05BD46EF289ACF9E00F4FF16 /* MainWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05BD46EE289ACF9E00F4FF16 /* Base */,
+			);
+			name = MainWindowController.xib;
+			sourceTree = "<group>";
+		};
+		05BD46F0289ACFD900F4FF16 /* AboutWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05BD46F1289ACFD900F4FF16 /* Base */,
+			);
+			name = AboutWindowController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05BD46A5289ACB9E00F4FF16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05BD46B1289ACC4600F4FF16 /* Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		05BD46A6289ACB9E00F4FF16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05BD46B2289ACC4600F4FF16 /* Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		05BD46A8289ACB9E00F4FF16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "SMC-Reader/SMC-Reader.entitlements";
+				INFOPLIST_FILE = "SMC-Reader/Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.SMC-Reader";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		05BD46A9289ACB9E00F4FF16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "SMC-Reader/SMC-Reader.entitlements";
+				INFOPLIST_FILE = "SMC-Reader/Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.SMC-Reader";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05BD4695289ACB9E00F4FF16 /* Build configuration list for PBXProject "SMC-Reader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05BD46A5289ACB9E00F4FF16 /* Debug */,
+				05BD46A6289ACB9E00F4FF16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05BD46A7289ACB9E00F4FF16 /* Build configuration list for PBXNativeTarget "SMC Reader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05BD46A8289ACB9E00F4FF16 /* Debug */,
+				05BD46A9289ACB9E00F4FF16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05BD4692289ACB9E00F4FF16 /* Project object */;
+}
