@@ -29,23 +29,42 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SMC()
 
+@property( nonatomic, readwrite, strong ) dispatch_queue_t queue;
+
 @end
 
 NS_ASSUME_NONNULL_END
 
 @implementation SMC
 
+- ( instancetype )init
+{
+    if( ( self = [ super init ] ) )
+    {
+        self.queue = dispatch_queue_create( "com.xs-labs.SMC-Reader", DISPATCH_QUEUE_SERIAL );
+    }
+    
+    return self;
+}
+
 - ( void )readAllKeys: ( void ( ^ )( NSArray< SMCData * > * ) )completion
 {
-    uint8_t                bytes[] = { 0, 0, 0, 0, 0 };
-    NSData               * data    = [ [ NSData alloc ] initWithBytes: bytes length: sizeof( bytes ) ];
-    NSArray< SMCData * > * items   =
-    @[
-        [ [ SMCData alloc ] initWithKey: @"Foo" type: SMCDataTypeTest data: data ],
-        [ [ SMCData alloc ] initWithKey: @"Bar" type: SMCDataTypeTest data: data ],
-    ];
-    
-    completion( items );
+    dispatch_async
+    (
+        self.queue,
+        ^( void )
+        {
+            uint8_t                bytes[] = { 0, 0, 0, 0, 0 };
+            NSData               * data    = [ [ NSData alloc ] initWithBytes: bytes length: sizeof( bytes ) ];
+            NSArray< SMCData * > * items   =
+            @[
+                [ [ SMCData alloc ] initWithKey: @"Foo" type: SMCDataTypeTest data: data ],
+                [ [ SMCData alloc ] initWithKey: @"Bar" type: SMCDataTypeTest data: data ],
+            ];
+            
+            completion( items );
+        }
+    );
 }
 
 @end
