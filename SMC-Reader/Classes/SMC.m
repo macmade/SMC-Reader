@@ -25,6 +25,8 @@
 #import "SMC.h"
 #import "SMC_Reader-Swift.h"
 
+@import IOKit;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SMC()
@@ -45,6 +47,16 @@ NS_ASSUME_NONNULL_END
     }
     
     return self;
+}
+
+- ( BOOL )open: ( NSError * _Nullable __autoreleasing * )error
+{
+    return YES;
+}
+
+- ( BOOL )close
+{
+    return YES;
 }
 
 - ( void )readAllKeys: ( void ( ^ )( NSArray< SMCData * > * ) )completion

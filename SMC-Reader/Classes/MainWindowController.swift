@@ -53,7 +53,16 @@ class MainWindowController: NSWindowController
             _ in self.update()
         }
         
-        self.update()
+        do
+        {
+            try self.smc.open()
+            self.update()
+        }
+        catch let error
+        {
+            NSAlert( error: error ).runModal()
+            NSApp.terminate( nil )
+        }
     }
     
     private func update()

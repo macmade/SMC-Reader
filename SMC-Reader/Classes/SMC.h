@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SMC: NSObject
 
+- ( BOOL )open: ( NSError * _Nullable __autoreleasing * )error;
+- ( BOOL )close;
 - ( void )readAllKeys: ( void ( ^ )( NSArray< SMCData * > * ) )completion;
 
 @end

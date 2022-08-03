@@ -24,9 +24,9 @@
 
 import Foundation
 
-extension NSError
+@objc extension NSError
 {
-    convenience init( title: String, message: String, code: Int = -1 )
+    @objc convenience init( title: String, message: String, code: Int = -1 )
     {
         let info =
         [
