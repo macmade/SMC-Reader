@@ -29,11 +29,26 @@ import Cocoa
     private let aboutWindowController = AboutWindowController()
     private let mainWindowController  = MainWindowController()
     
+    private var windowObserver: Any?
+    
     func applicationDidFinishLaunching( _ notification: Notification )
     {
         self.mainWindowController.window?.layoutIfNeeded()
         self.mainWindowController.window?.center()
         self.mainWindowController.window?.makeKeyAndOrderFront( nil )
+        
+        self.windowObserver = NotificationCenter.default.addObserver( forName: NSWindow.willCloseNotification, object: nil, queue: nil )
+        {
+            guard let window = $0.object as? NSWindow else
+            {
+                return
+            }
+            
+            if window == self.mainWindowController.window
+            {
+                NSApp.terminate( nil )
+            }
+        }
     }
     
     @IBAction public func showAboutWindow( _ sender: Any? )
