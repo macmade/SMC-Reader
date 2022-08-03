@@ -17,6 +17,7 @@
 		05BD46F9289AE19100F4FF16 /* SMCDataTypeTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46F8289AE19100F4FF16 /* SMCDataTypeTransformer.swift */; };
 		05BD46FB289AE19A00F4FF16 /* DataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46FA289AE19A00F4FF16 /* DataTransformer.swift */; };
 		05BD46FD289AF1BB00F4FF16 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46FC289AF1BB00F4FF16 /* NSError.swift */; };
+		05BD4701289AF37200F4FF16 /* SMC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4700289AF37200F4FF16 /* SMC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,9 @@
 		05BD46F8289AE19100F4FF16 /* SMCDataTypeTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCDataTypeTransformer.swift; sourceTree = "<group>"; };
 		05BD46FA289AE19A00F4FF16 /* DataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransformer.swift; sourceTree = "<group>"; };
 		05BD46FC289AF1BB00F4FF16 /* NSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
+		05BD46FE289AF37200F4FF16 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		05BD46FF289AF37200F4FF16 /* SMC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMC.h; sourceTree = "<group>"; };
+		05BD4700289AF37200F4FF16 /* SMC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 				05BD46E4289ACC4B00F4FF16 /* Classes */,
 				05BD46E5289ACD2800F4FF16 /* UI */,
 				05BD46E8289ACD7900F4FF16 /* Info.plist */,
+				05BD46FE289AF37200F4FF16 /* Bridging-Header.h */,
 				05BD46A4289ACB9E00F4FF16 /* SMC-Reader.entitlements */,
 			);
 			path = "SMC-Reader";
@@ -257,11 +262,13 @@
 			children = (
 				05BD46F3289ACFDF00F4FF16 /* AboutWindowController.swift */,
 				05BD469D289ACB9E00F4FF16 /* ApplicationDelegate.swift */,
+				05BD46FA289AE19A00F4FF16 /* DataTransformer.swift */,
 				05BD46E9289ACF2900F4FF16 /* MainWindowController.swift */,
+				05BD46FC289AF1BB00F4FF16 /* NSError.swift */,
+				05BD46FF289AF37200F4FF16 /* SMC.h */,
+				05BD4700289AF37200F4FF16 /* SMC.m */,
 				05BD46F6289ADF2800F4FF16 /* SMCData.swift */,
 				05BD46F8289AE19100F4FF16 /* SMCDataTypeTransformer.swift */,
-				05BD46FA289AE19A00F4FF16 /* DataTransformer.swift */,
-				05BD46FC289AF1BB00F4FF16 /* NSError.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -308,6 +315,7 @@
 				TargetAttributes = {
 					05BD4699289ACB9E00F4FF16 = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
@@ -350,6 +358,7 @@
 				05BD46F4289ACFDF00F4FF16 /* AboutWindowController.swift in Sources */,
 				05BD46F7289ADF2800F4FF16 /* SMCData.swift in Sources */,
 				05BD46EA289ACF2900F4FF16 /* MainWindowController.swift in Sources */,
+				05BD4701289AF37200F4FF16 /* SMC.m in Sources */,
 				05BD469E289ACB9E00F4FF16 /* ApplicationDelegate.swift in Sources */,
 				05BD46F9289AE19100F4FF16 /* SMCDataTypeTransformer.swift in Sources */,
 				05BD46FD289AF1BB00F4FF16 /* NSError.swift in Sources */,
@@ -404,6 +413,7 @@
 		05BD46A8289ACB9E00F4FF16 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "SMC-Reader/SMC-Reader.entitlements";
 				INFOPLIST_FILE = "SMC-Reader/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -415,12 +425,16 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.SMC-Reader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SMC-Reader/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		05BD46A9289ACB9E00F4FF16 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "SMC-Reader/SMC-Reader.entitlements";
 				INFOPLIST_FILE = "SMC-Reader/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -432,6 +446,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.SMC-Reader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SMC-Reader/Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
