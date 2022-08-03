@@ -23,9 +23,12 @@
  ******************************************************************************/
 
 import Cocoa
+import UniformTypeIdentifiers
 
 class MainWindowController: NSWindowController
 {
+    @IBOutlet private var dataController: NSArrayController!
+    
     override var windowNibName: NSNib.Name?
     {
         "MainWindowController"
@@ -34,5 +37,84 @@ class MainWindowController: NSWindowController
     override func windowDidLoad()
     {
         super.windowDidLoad()
+        
+        self.dataController.sortDescriptors =
+        [
+            NSSortDescriptor( key: "key", ascending: true )
+        ]
+        
+        self.dataController.addObject( SMCData( key: "Foo", type: .Test, data: Data( count: 10 ) ) )
+        self.dataController.addObject( SMCData( key: "Bar", type: .Test, data: Data( count: 10 ) ) )
+    }
+    
+    @IBAction public func export( _ sender: Any? )
+    {
+        guard let window = self.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        let panel                  = NSSavePanel()
+        panel.canCreateDirectories = true
+        panel.allowsOtherFileTypes = false
+        panel.allowedContentTypes  = [ .plainText ]
+        
+        panel.beginSheetModal( for: window )
+        {
+            guard let url = panel.url, $0 == .OK else
+            {
+                return
+            }
+            
+            do
+            {
+                try self.export( to: url )
+            }
+            catch let error
+            {
+                NSAlert( error: error ).runModal()
+            }
+        }
+    }
+    
+    private func export( to url: URL ) throws
+    {
+        guard let items  = self.dataController.arrangedObjects as? [ SMCData ] else
+        {
+            throw NSError( title: "Cannot Export Items", message: "Cannot retrieve items to export." )
+        }
+        
+        let lines: [ String ] = items.compactMap
+        {
+            item in
+            
+            guard let type = SMCDataTypeTransformer().transformedValue( item ) as? String,
+                  let data = DataTransformer().transformedValue( item.data )   as? String
+            else
+            {
+                return nil
+            }
+            
+            let value: String =
+            {
+                guard let value = item.value else
+                {
+                    return ""
+                }
+                
+                return String( describing: value )
+            }()
+            
+            return "\( item.key )\t\( type )\t\( value )\t\( data )"
+        }
+        
+        guard let data = lines.joined( separator: "\n" ).data( using: .utf8 ) else
+        {
+            throw NSError( title: "Cannot Export Items", message: "Cannot create UTF-8 data from text." )
+        }
+        
+        try data.write( to: url )
     }
 }
