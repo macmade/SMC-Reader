@@ -29,6 +29,11 @@ class MainWindowController: NSWindowController
 {
     @IBOutlet private var dataController: NSArrayController!
     
+    private var smc  = SMC()
+    private var timer: Timer?
+    
+    @objc private dynamic var data = [ SMCData ]()
+    
     override var windowNibName: NSNib.Name?
     {
         "MainWindowController"
@@ -43,8 +48,23 @@ class MainWindowController: NSWindowController
             NSSortDescriptor( key: "key", ascending: true )
         ]
         
-        self.dataController.addObject( SMCData( key: "Foo", type: .Test, data: Data( count: 10 ) ) )
-        self.dataController.addObject( SMCData( key: "Bar", type: .Test, data: Data( count: 10 ) ) )
+        self.timer = Timer.scheduledTimer( withTimeInterval: 1, repeats: true )
+        {
+            _ in self.update()
+        }
+        
+        self.update()
+    }
+    
+    private func update()
+    {
+        self.smc.readAllKeys
+        {
+            data in DispatchQueue.main.async
+            {
+                self.data = data
+            }
+        }
     }
     
     @IBAction public func export( _ sender: Any? )

@@ -24,9 +24,13 @@
 
 @import Foundation;
 
+@class SMCData;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SMC: NSObject
+
+- ( void )readAllKeys: ( void ( ^ )( NSArray< SMCData * > * ) )completion;
 
 @end
 

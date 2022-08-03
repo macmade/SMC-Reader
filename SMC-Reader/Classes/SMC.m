@@ -23,6 +23,7 @@
  ******************************************************************************/
 
 #import "SMC.h"
+#import "SMC_Reader-Swift.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,5 +34,18 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 @implementation SMC
+
+- ( void )readAllKeys: ( void ( ^ )( NSArray< SMCData * > * ) )completion
+{
+    uint8_t                bytes[] = { 0, 0, 0, 0, 0 };
+    NSData               * data    = [ [ NSData alloc ] initWithBytes: bytes length: sizeof( bytes ) ];
+    NSArray< SMCData * > * items   =
+    @[
+        [ [ SMCData alloc ] initWithKey: @"Foo" type: SMCDataTypeTest data: data ],
+        [ [ SMCData alloc ] initWithKey: @"Bar" type: SMCDataTypeTest data: data ],
+    ];
+    
+    completion( items );
+}
 
 @end

@@ -273,7 +273,11 @@
             </view>
             <point key="canvasLocation" x="139" y="144"/>
         </window>
-        <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" clearsFilterPredicateOnInsertion="NO" automaticallyRearrangesObjects="YES" id="zKO-uc-O3J"/>
+        <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" clearsFilterPredicateOnInsertion="NO" automaticallyRearrangesObjects="YES" id="zKO-uc-O3J">
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="self.data" id="Crk-oW-L4H"/>
+            </connections>
+        </arrayController>
     </objects>
     <resources>
         <image name="doc.plaintext.fill" catalog="system" width="14" height="16"/>

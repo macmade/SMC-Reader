@@ -26,7 +26,8 @@ import Cocoa
 
 @objc class SMCData: NSObject
 {
-    @objc public enum DataType: Int
+    @objc( SMCDataType )
+    public enum DataType: Int
     {
         case Test
     }
@@ -54,5 +55,20 @@ import Cocoa
     private class func valueForData( _ data: Data, type: DataType ) -> Any?
     {
         42
+    }
+    
+    override func isEqual( _ object: Any? ) -> Bool
+    {
+        self.isEqual( to: object )
+    }
+    
+    override func isEqual( to object: Any? ) -> Bool
+    {
+        guard let data = object as? SMCData else
+        {
+            return false
+        }
+        
+        return self.key == data.key
     }
 }
