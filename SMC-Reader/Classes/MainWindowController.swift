@@ -109,26 +109,17 @@ class MainWindowController: NSWindowController
     
     private func export( to url: URL ) throws
     {
-        guard let items  = self.dataController.arrangedObjects as? [ SMCData ] else
+        guard let items  = self.dataController.content as? [ SMCData ] else
         {
             throw NSError( title: "Cannot Export Items", message: "Cannot retrieve items to export." )
         }
         
         let lines: [ String ] = items.compactMap
         {
-            item in
+            let data  = DataTransformer().transformedValue( $0.data ) as? String ?? ""
+            let value = SMCValueTransformer().transformedValue( $0 )  as? String ?? ""
             
-            guard let key  = SMCKeyTransformer().transformedValue( item ) as? String,
-                  let type = SMCDataTypeTransformer().transformedValue( item ) as? String,
-                  let data = DataTransformer().transformedValue( item.data )   as? String
-            else
-            {
-                return nil
-            }
-            
-            let value = SMCValueTransformer().transformedValue( item ) as? String ?? ""
-            
-            return "\( key )\t\( type )\t\( value )\t\( data )"
+            return "\( $0.keyName )\t\( $0.typeName )\t\( value )\t\( data )"
         }
         
         guard let data = lines.joined( separator: "\n" ).data( using: .utf8 ) else

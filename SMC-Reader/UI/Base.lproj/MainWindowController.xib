@@ -95,11 +95,7 @@
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <binding destination="3mK-45-ooU" name="value" keyPath="objectValue" id="Jsy-oC-quS">
-                                                                    <dictionary key="options">
-                                                                        <string key="NSValueTransformerName">SMCKeyTransformer</string>
-                                                                    </dictionary>
-                                                                </binding>
+                                                                <binding destination="3mK-45-ooU" name="value" keyPath="objectValue.keyName" id="yOc-lJ-Yhg"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -139,11 +135,7 @@
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <binding destination="16W-Lc-Ygr" name="value" keyPath="objectValue" id="ise-mk-aOx">
-                                                                    <dictionary key="options">
-                                                                        <string key="NSValueTransformerName">SMCDataTypeTransformer</string>
-                                                                    </dictionary>
-                                                                </binding>
+                                                                <binding destination="16W-Lc-Ygr" name="value" keyPath="objectValue.typeName" id="3KX-2v-4RX"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -282,10 +274,10 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </searchFieldCell>
                         <connections>
-                            <binding destination="zKO-uc-O3J" name="predicate" keyPath="filterPredicate" id="cKz-48-C1N">
+                            <binding destination="zKO-uc-O3J" name="predicate" keyPath="filterPredicate" id="lz1-7G-Ct1">
                                 <dictionary key="options">
                                     <string key="NSDisplayName">predicate</string>
-                                    <string key="NSPredicateFormat">key contains[c] $value</string>
+                                    <string key="NSPredicateFormat">keyName contains[c] $value || typeName contains[c] $value</string>
                                 </dictionary>
                             </binding>
                         </connections>

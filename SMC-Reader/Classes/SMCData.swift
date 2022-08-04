@@ -30,11 +30,21 @@ import Cocoa
     @objc public dynamic var type: UInt32
     @objc public dynamic var data: Data
     
+    @objc public var keyName:  String
+    {
+        String( fourCC: self.key )
+    }
+    
+    @objc public var typeName: String
+    {
+        String( fourCC: self.type )
+    }
+    
     @objc public init( key: UInt32, type: UInt32, data: Data )
     {
-        self.key   = key
-        self.type  = type
-        self.data  = data
+        self.key  = key
+        self.type = type
+        self.data = data
     }
     
     override func isEqual( _ object: Any? ) -> Bool

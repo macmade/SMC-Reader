@@ -39,21 +39,29 @@ class SMCValueTransformer: ValueTransformer
     
     override func transformedValue( _ value: Any? ) -> Any?
     {
-        guard let data = value as? SMCData else
+        guard let data  = value as? SMCData,
+              let value = self.value( for: data.data, type: data.type ) else
         {
             return nil
         }
         
-        switch String( fourCC: data.type )
+        return String( describing: value )
+    }
+    
+    private func value( for data: Data, type: UInt32 ) -> Any?
+    {
+        switch String( fourCC: type )
         {
-            case "si8 ": return data.data.sint8
-            case "ui8 ": return data.data.uint8
-            case "si16": return data.data.sint16
-            case "ui16": return data.data.uint16
-            case "si32": return data.data.sint32
-            case "ui32": return data.data.uint32
-            case "si64": return data.data.sint64
-            case "ui64": return data.data.uint64
+            case "si8 ": return data.sint8.byteSwapped
+            case "ui8 ": return data.uint8.byteSwapped
+            case "si16": return data.sint16.byteSwapped
+            case "ui16": return data.uint16.byteSwapped
+            case "si32": return data.sint32.byteSwapped
+            case "ui32": return data.uint32.byteSwapped
+            case "si64": return data.sint64.byteSwapped
+            case "ui64": return data.uint64.byteSwapped
+            case "flt ": return data.float32
+            case "flag": return data[ 0 ] == 1 ? "True" : "False"
             
             default: return nil
         }
