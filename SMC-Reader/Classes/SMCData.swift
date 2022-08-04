@@ -26,9 +26,10 @@ import Cocoa
 
 @objc class SMCData: NSObject, NSPasteboardWriting
 {
-    @objc public dynamic var key:  UInt32
-    @objc public dynamic var type: UInt32
-    @objc public dynamic var data: Data
+    @objc public dynamic var key:   UInt32
+    @objc public dynamic var type:  UInt32
+    @objc public dynamic var data:  Data
+    @objc public dynamic var value: Any?
     
     @objc public var keyName:  String
     {
@@ -40,11 +41,32 @@ import Cocoa
         String( fourCC: self.type )
     }
     
+    @objc public var dataSize: Int
+    {
+        self.data.count
+    }
+    
+    @objc public var hexData: String
+    {
+        self.data.map { String( format: "%02X", $0 ) }.joined( separator: "" )
+    }
+    
+    @objc public var stringValue: String
+    {
+        if let value = self.value
+        {
+            return String( describing: value )
+        }
+        
+        return ""
+    }
+    
     @objc public init( key: UInt32, type: UInt32, data: Data )
     {
-        self.key  = key
-        self.type = type
-        self.data = data
+        self.key   = key
+        self.type  = type
+        self.data  = data
+        self.value = SMCData.value( for: data, type: type )
     }
     
     override func isEqual( _ object: Any? ) -> Bool
@@ -74,9 +96,25 @@ import Cocoa
     
     override var description: String
     {
-        let data  = DataTransformer().transformedValue( self.data ) as? String ?? ""
-        let value = SMCValueTransformer().transformedValue( self )  as? String ?? ""
-        
-        return "\( self.keyName )\t\( self.typeName )\t\( value )\t\( data )"
+        return "\( self.keyName )\t\( self.typeName )\t\( self.value ?? "" )\t\( self.dataSize )\t\( self.hexData )"
+    }
+    
+    private class func value( for data: Data, type: UInt32 ) -> Any?
+    {
+        switch String( fourCC: type )
+        {
+            case "si8 ": return data.sint8.byteSwapped
+            case "ui8 ": return data.uint8.byteSwapped
+            case "si16": return data.sint16.byteSwapped
+            case "ui16": return data.uint16.byteSwapped
+            case "si32": return data.sint32.byteSwapped
+            case "ui32": return data.uint32.byteSwapped
+            case "si64": return data.sint64.byteSwapped
+            case "ui64": return data.uint64.byteSwapped
+            case "flt ": return data.float32
+            case "flag": return data[ 0 ] == 1 ? "True" : "False"
+            
+            default: return nil
+        }
     }
 }

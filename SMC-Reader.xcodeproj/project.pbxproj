@@ -14,11 +14,9 @@
 		05BD46F2289ACFD900F4FF16 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BD46F0289ACFD900F4FF16 /* AboutWindowController.xib */; };
 		05BD46F4289ACFDF00F4FF16 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46F3289ACFDF00F4FF16 /* AboutWindowController.swift */; };
 		05BD46F7289ADF2800F4FF16 /* SMCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46F6289ADF2800F4FF16 /* SMCData.swift */; };
-		05BD46FB289AE19A00F4FF16 /* DataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46FA289AE19A00F4FF16 /* DataTransformer.swift */; };
 		05BD46FD289AF1BB00F4FF16 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46FC289AF1BB00F4FF16 /* NSError.swift */; };
 		05BD4701289AF37200F4FF16 /* SMC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4700289AF37200F4FF16 /* SMC.m */; };
 		05BD4732289C58AE00F4FF16 /* NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4731289C58AE00F4FF16 /* NSString.swift */; };
-		05BD4736289C5A7C00F4FF16 /* SMCValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4735289C5A7C00F4FF16 /* SMCValueTransformer.swift */; };
 		05BD4738289C5BD800F4FF16 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4737289C5BD800F4FF16 /* String.swift */; };
 		05BD473A289C61BB00F4FF16 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4739289C61BB00F4FF16 /* Data.swift */; };
 /* End PBXBuildFile section */
@@ -83,14 +81,12 @@
 		05BD46F1289ACFD900F4FF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AboutWindowController.xib; sourceTree = "<group>"; };
 		05BD46F3289ACFDF00F4FF16 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
 		05BD46F6289ADF2800F4FF16 /* SMCData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCData.swift; sourceTree = "<group>"; };
-		05BD46FA289AE19A00F4FF16 /* DataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransformer.swift; sourceTree = "<group>"; };
 		05BD46FC289AF1BB00F4FF16 /* NSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
 		05BD46FE289AF37200F4FF16 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		05BD46FF289AF37200F4FF16 /* SMC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMC.h; sourceTree = "<group>"; };
 		05BD4700289AF37200F4FF16 /* SMC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMC.m; sourceTree = "<group>"; };
 		05BD4729289C10F400F4FF16 /* SMC-Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SMC-Internal.h"; sourceTree = "<group>"; };
 		05BD4731289C58AE00F4FF16 /* NSString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSString.swift; sourceTree = "<group>"; };
-		05BD4735289C5A7C00F4FF16 /* SMCValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCValueTransformer.swift; sourceTree = "<group>"; };
 		05BD4737289C5BD800F4FF16 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		05BD4739289C61BB00F4FF16 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,7 +266,6 @@
 				05BD46F3289ACFDF00F4FF16 /* AboutWindowController.swift */,
 				05BD469D289ACB9E00F4FF16 /* ApplicationDelegate.swift */,
 				05BD4739289C61BB00F4FF16 /* Data.swift */,
-				05BD46FA289AE19A00F4FF16 /* DataTransformer.swift */,
 				05BD46E9289ACF2900F4FF16 /* MainWindowController.swift */,
 				05BD46FC289AF1BB00F4FF16 /* NSError.swift */,
 				05BD4731289C58AE00F4FF16 /* NSString.swift */,
@@ -278,7 +273,6 @@
 				05BD46FF289AF37200F4FF16 /* SMC.h */,
 				05BD4700289AF37200F4FF16 /* SMC.m */,
 				05BD46F6289ADF2800F4FF16 /* SMCData.swift */,
-				05BD4735289C5A7C00F4FF16 /* SMCValueTransformer.swift */,
 				05BD4737289C5BD800F4FF16 /* String.swift */,
 			);
 			path = Classes;
@@ -374,9 +368,7 @@
 				05BD469E289ACB9E00F4FF16 /* ApplicationDelegate.swift in Sources */,
 				05BD4738289C5BD800F4FF16 /* String.swift in Sources */,
 				05BD473A289C61BB00F4FF16 /* Data.swift in Sources */,
-				05BD4736289C5A7C00F4FF16 /* SMCValueTransformer.swift in Sources */,
 				05BD46FD289AF1BB00F4FF16 /* NSError.swift in Sources */,
-				05BD46FB289AE19A00F4FF16 /* DataTransformer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
