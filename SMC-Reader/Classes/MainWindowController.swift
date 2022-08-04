@@ -114,13 +114,7 @@ class MainWindowController: NSWindowController
             throw NSError( title: "Cannot Export Items", message: "Cannot retrieve items to export." )
         }
         
-        let lines: [ String ] = items.compactMap
-        {
-            let data  = DataTransformer().transformedValue( $0.data ) as? String ?? ""
-            let value = SMCValueTransformer().transformedValue( $0 )  as? String ?? ""
-            
-            return "\( $0.keyName )\t\( $0.typeName )\t\( value )\t\( data )"
-        }
+        let lines: [ String ] = items.compactMap { $0.description }
         
         guard let data = lines.joined( separator: "\n" ).data( using: .utf8 ) else
         {
@@ -128,5 +122,18 @@ class MainWindowController: NSWindowController
         }
         
         try data.write( to: url )
+    }
+    
+    @IBAction public func copy( _ sender: Any? )
+    {
+        guard let items = self.dataController.selectedObjects as? [ SMCData ], items.isEmpty == false else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.writeObjects( items )
     }
 }

@@ -24,7 +24,7 @@
 
 import Cocoa
 
-@objc class SMCData: NSObject
+@objc class SMCData: NSObject, NSPasteboardWriting
 {
     @objc public dynamic var key:  UInt32
     @objc public dynamic var type: UInt32
@@ -60,5 +60,23 @@ import Cocoa
         }
         
         return self.key == data.key
+    }
+    
+    func writableTypes( for pasteboard: NSPasteboard ) -> [ NSPasteboard.PasteboardType ]
+    {
+        [ .string ]
+    }
+    
+    func pasteboardPropertyList( forType type: NSPasteboard.PasteboardType ) -> Any?
+    {
+        self.description
+    }
+    
+    override var description: String
+    {
+        let data  = DataTransformer().transformedValue( self.data ) as? String ?? ""
+        let value = SMCValueTransformer().transformedValue( self )  as? String ?? ""
+        
+        return "\( self.keyName )\t\( self.typeName )\t\( value )\t\( data )"
     }
 }
