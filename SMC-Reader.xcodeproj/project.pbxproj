@@ -86,6 +86,7 @@
 		05BD46FE289AF37200F4FF16 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		05BD46FF289AF37200F4FF16 /* SMC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMC.h; sourceTree = "<group>"; };
 		05BD4700289AF37200F4FF16 /* SMC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMC.m; sourceTree = "<group>"; };
+		05BD4729289C10F400F4FF16 /* SMC-Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SMC-Internal.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +267,7 @@
 				05BD46E9289ACF2900F4FF16 /* MainWindowController.swift */,
 				05BD46FC289AF1BB00F4FF16 /* NSError.swift */,
 				05BD46FF289AF37200F4FF16 /* SMC.h */,
+				05BD4729289C10F400F4FF16 /* SMC-Internal.h */,
 				05BD4700289AF37200F4FF16 /* SMC.m */,
 				05BD46F6289ADF2800F4FF16 /* SMCData.swift */,
 				05BD46F8289AE19100F4FF16 /* SMCDataTypeTransformer.swift */,
