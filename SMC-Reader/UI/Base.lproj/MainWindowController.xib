@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="SMC_Reader" customModuleProvider="target">
             <connections>
                 <outlet property="dataController" destination="zKO-uc-O3J" id="Cpu-GU-zU7"/>
+                <outlet property="tableView" destination="Ds7-L2-67y" id="zc7-fx-j6f"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="r1t-DV-1oe"/>
             </connections>
         </customObject>

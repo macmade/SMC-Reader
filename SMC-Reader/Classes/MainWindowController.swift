@@ -28,6 +28,7 @@ import UniformTypeIdentifiers
 class MainWindowController: NSWindowController
 {
     @IBOutlet private var dataController: NSArrayController!
+    @IBOutlet private var tableView:      NSTableView!
     
     private var smc = SMC()
     
@@ -60,8 +61,20 @@ class MainWindowController: NSWindowController
         }
     }
     
+    @IBAction public func saveDocument( _ sender: Any? )
+    {
+        self.export( sender )
+    }
+    
     @IBAction public func refresh( _ sender: Any? )
     {
+        let responder = self.window?.firstResponder
+        
+        if responder == self.tableView
+        {
+            self.window?.makeFirstResponder( nil )
+        }
+        
         self.refreshing = true
         
         self.smc.readAllKeys
@@ -70,6 +83,11 @@ class MainWindowController: NSWindowController
             {
                 self.data       = data
                 self.refreshing = false
+                
+                if responder == self.tableView
+                {
+                    self.window?.makeFirstResponder( responder )
+                }
             }
         }
     }
