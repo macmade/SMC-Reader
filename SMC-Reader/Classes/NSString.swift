@@ -28,11 +28,6 @@ import Foundation
 {
     @objc convenience init( fourCC: UInt32 )
     {
-        let c1 = UInt8( ( fourCC >> 24 ) & 0xFF )
-        let c2 = UInt8( ( fourCC >> 16 ) & 0xFF )
-        let c3 = UInt8( ( fourCC >>  8 ) & 0xFF )
-        let c4 = UInt8( ( fourCC >>  0 ) & 0xFF )
-        
-        self.init( format: "%c%c%c%c", c1, c2, c3, c4 )
+        self.init( string: String( fourCC: fourCC ) )
     }
 }

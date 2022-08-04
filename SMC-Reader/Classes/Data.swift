@@ -22,40 +22,64 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-import Cocoa
+import Foundation
 
-@objc( SMCValueTransformer )
-class SMCValueTransformer: ValueTransformer
+extension Data
 {
-    override class func transformedValueClass() -> AnyClass
+    var sint8: Int8
     {
-        NSString.self
+        Int8( bitPattern: self.uint8 )
     }
     
-    override class func allowsReverseTransformation() -> Bool
+    var sint16: Int16
     {
-        false
+        Int16( bitPattern: self.uint16 )
     }
     
-    override func transformedValue( _ value: Any? ) -> Any?
+    var sint32: Int32
     {
-        guard let data = value as? SMCData else
-        {
-            return nil
-        }
+        Int32( bitPattern: self.uint32 )
+    }
+    
+    var sint64: Int64
+    {
+        Int64( bitPattern: self.uint64 )
+    }
+    
+    var uint8: UInt8
+    {
+        UInt8( self[ 0 ] )
+    }
+    
+    var uint16: UInt16
+    {
+        let u1 = UInt16( self[ 1 ] ) << 8
+        let u2 = UInt16( self[ 0 ] ) << 0
         
-        switch String( fourCC: data.type )
-        {
-            case "si8 ": return data.data.sint8
-            case "ui8 ": return data.data.uint8
-            case "si16": return data.data.sint16
-            case "ui16": return data.data.uint16
-            case "si32": return data.data.sint32
-            case "ui32": return data.data.uint32
-            case "si64": return data.data.sint64
-            case "ui64": return data.data.uint64
-            
-            default: return nil
-        }
+        return u1 | u2
+    }
+    
+    var uint32: UInt32
+    {
+        let u1 = UInt32( self[ 3 ] ) << 24
+        let u2 = UInt32( self[ 2 ] ) << 16
+        let u3 = UInt32( self[ 1 ] ) <<  8
+        let u4 = UInt32( self[ 0 ] ) <<  0
+        
+        return u1 | u2 | u3 | u4
+    }
+    
+    var uint64: UInt64
+    {
+        let u1 = UInt64( self[ 7 ] ) << 56
+        let u2 = UInt64( self[ 6 ] ) << 48
+        let u3 = UInt64( self[ 5 ] ) << 40
+        let u4 = UInt64( self[ 4 ] ) << 32
+        let u5 = UInt64( self[ 3 ] ) << 24
+        let u6 = UInt64( self[ 2 ] ) << 16
+        let u7 = UInt64( self[ 1 ] ) <<  8
+        let u8 = UInt64( self[ 0 ] ) <<  0
+        
+        return u1 | u2 | u3 | u4 | u5 | u6 | u7 | u8
     }
 }

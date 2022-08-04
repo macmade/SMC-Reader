@@ -22,40 +22,38 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-import Cocoa
+import Foundation
 
-@objc( SMCValueTransformer )
-class SMCValueTransformer: ValueTransformer
+extension String
 {
-    override class func transformedValueClass() -> AnyClass
+    init( fourCC: UInt32 )
     {
-        NSString.self
+        let c1 = UInt8( ( fourCC >> 24 ) & 0xFF )
+        let c2 = UInt8( ( fourCC >> 16 ) & 0xFF )
+        let c3 = UInt8( ( fourCC >>  8 ) & 0xFF )
+        let c4 = UInt8( ( fourCC >>  0 ) & 0xFF )
+        
+        self.init( format: "%c%c%c%c", c1, c2, c3, c4 )
     }
     
-    override class func allowsReverseTransformation() -> Bool
+    var fourCC: UInt32
     {
-        false
-    }
-    
-    override func transformedValue( _ value: Any? ) -> Any?
-    {
-        guard let data = value as? SMCData else
+        let str = self.padding( toLength: 4, withPad: " ", startingAt: 0 )
+        
+        guard let c1 = str[ str.index( str.startIndex, offsetBy: 0 ) ].asciiValue,
+              let c2 = str[ str.index( str.startIndex, offsetBy: 1 ) ].asciiValue,
+              let c3 = str[ str.index( str.startIndex, offsetBy: 2 ) ].asciiValue,
+              let c4 = str[ str.index( str.startIndex, offsetBy: 3 ) ].asciiValue
+        else
         {
-            return nil
+            return 0
         }
         
-        switch String( fourCC: data.type )
-        {
-            case "si8 ": return data.data.sint8
-            case "ui8 ": return data.data.uint8
-            case "si16": return data.data.sint16
-            case "ui16": return data.data.uint16
-            case "si32": return data.data.sint32
-            case "ui32": return data.data.uint32
-            case "si64": return data.data.sint64
-            case "ui64": return data.data.uint64
-            
-            default: return nil
-        }
+        let u1 = UInt32( c1 ) << 24
+        let u2 = UInt32( c2 ) << 16
+        let u3 = UInt32( c3 ) <<  8
+        let u4 = UInt32( c4 ) <<  0
+        
+        return u1 | u2 | u3 | u4
     }
 }
