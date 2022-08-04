@@ -96,7 +96,7 @@ import Cocoa
     
     override var description: String
     {
-        return "\( self.keyName )\t\( self.typeName )\t\( self.value ?? "" )\t\( self.dataSize )\t\( self.hexData )"
+        return "\( self.keyName )\t\( self.stringValue )\t\( self.typeName )\t\( self.dataSize )\t\( self.hexData )"
     }
     
     private class func value( for data: Data, type: UInt32 ) -> Any?
