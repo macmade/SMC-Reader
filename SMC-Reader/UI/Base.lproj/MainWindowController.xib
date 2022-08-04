@@ -23,6 +23,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="nc8-Xj-AbY">
+                        <rect key="frame" x="20" y="81" width="760" height="489"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6B6-qy-vVS">
+                                <rect key="frame" x="289" y="232" width="182" height="26"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Loading SMC Data" id="93C-Wy-kJb">
+                                    <font key="font" textStyle="title1" name=".SFNS-Regular"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5DX-us-UBW">
+                                <rect key="frame" x="337" y="208" width="86" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Please Wait..." id="nAY-wP-smo">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="5DX-us-UBW" firstAttribute="centerX" secondItem="6B6-qy-vVS" secondAttribute="centerX" id="5yS-df-3WT"/>
+                            <constraint firstItem="6B6-qy-vVS" firstAttribute="centerY" secondItem="nc8-Xj-AbY" secondAttribute="centerY" id="HSq-xC-Nkn"/>
+                            <constraint firstItem="6B6-qy-vVS" firstAttribute="centerX" secondItem="nc8-Xj-AbY" secondAttribute="centerX" id="XyU-X5-Uf3"/>
+                            <constraint firstItem="5DX-us-UBW" firstAttribute="top" secondItem="6B6-qy-vVS" secondAttribute="bottom" constant="8" symbolic="YES" id="gfV-Fq-1vN"/>
+                        </constraints>
+                        <connections>
+                            <binding destination="-2" name="hidden" keyPath="self.refreshing" id="dc0-Ay-XTS">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </customView>
                     <scrollView autoresizesSubviews="NO" borderType="line" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOf-id-Lh1">
                         <rect key="frame" x="20" y="81" width="760" height="489"/>
                         <clipView key="contentView" autoresizesSubviews="NO" id="jtO-in-bqT">
@@ -61,7 +95,11 @@
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <binding destination="3mK-45-ooU" name="value" keyPath="objectValue.key" id="eJI-K5-zEh"/>
+                                                                <binding destination="3mK-45-ooU" name="value" keyPath="objectValue" id="Jsy-oC-quS">
+                                                                    <dictionary key="options">
+                                                                        <string key="NSValueTransformerName">SMCKeyTransformer</string>
+                                                                    </dictionary>
+                                                                </binding>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -145,7 +183,11 @@
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <binding destination="bYQ-in-7mM" name="value" keyPath="objectValue.value" id="K1N-bD-7aP"/>
+                                                                <binding destination="bYQ-in-7mM" name="value" keyPath="objectValue" id="ZSY-9r-Igq">
+                                                                    <dictionary key="options">
+                                                                        <string key="NSValueTransformerName">SMCValueTransformer</string>
+                                                                    </dictionary>
+                                                                </binding>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -225,12 +267,15 @@
                             <rect key="frame" x="0.0" y="0.0" width="758" height="28"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
+                        <connections>
+                            <binding destination="-2" name="hidden" keyPath="self.refreshing" id="5FI-Z5-htq"/>
+                        </connections>
                     </scrollView>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Ghg-2k-8GH">
                         <rect key="frame" x="12" y="58" width="776" height="5"/>
                     </box>
                     <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doR-LN-Ugh">
-                        <rect key="frame" x="20" y="19" width="676" height="22"/>
+                        <rect key="frame" x="20" y="19" width="581" height="22"/>
                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="qyV-7s-8dp">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -246,27 +291,53 @@
                         </connections>
                     </searchField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="M7A-iU-lKI">
-                        <rect key="frame" x="697" y="13" width="90" height="32"/>
+                        <rect key="frame" x="602" y="13" width="90" height="32"/>
                         <buttonCell key="cell" type="push" title="Export" bezelStyle="rounded" image="doc.plaintext.fill" catalog="system" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qjr-RQ-8VF">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
                             <action selector="export:" target="-2" id="k4T-gW-bmJ"/>
+                            <binding destination="-2" name="enabled" keyPath="self.refreshing" id="4XH-1d-cVt">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HWq-jP-Ugv">
+                        <rect key="frame" x="690" y="13" width="97" height="32"/>
+                        <buttonCell key="cell" type="push" title="Refresh" bezelStyle="rounded" image="arrow.clockwise" catalog="system" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fbe-YC-eyf">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="refresh:" target="-2" id="3Sh-98-THS"/>
+                            <binding destination="-2" name="enabled" keyPath="self.refreshing" id="gqm-3k-xjT">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="M7A-iU-lKI" secondAttribute="bottom" constant="20" symbolic="YES" id="4aD-2F-70V"/>
+                    <constraint firstItem="M7A-iU-lKI" firstAttribute="centerY" secondItem="HWq-jP-Ugv" secondAttribute="centerY" id="4QW-Kj-xzP"/>
                     <constraint firstAttribute="trailing" secondItem="qOf-id-Lh1" secondAttribute="trailing" constant="20" symbolic="YES" id="7r7-2d-i5b"/>
-                    <constraint firstAttribute="trailing" secondItem="M7A-iU-lKI" secondAttribute="trailing" constant="20" symbolic="YES" id="Esg-Au-lZB"/>
+                    <constraint firstAttribute="trailing" secondItem="HWq-jP-Ugv" secondAttribute="trailing" constant="20" symbolic="YES" id="EBE-JR-qQu"/>
                     <constraint firstItem="Ghg-2k-8GH" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="12" symbolic="YES" id="HnV-pT-Abb"/>
+                    <constraint firstItem="nc8-Xj-AbY" firstAttribute="height" secondItem="qOf-id-Lh1" secondAttribute="height" id="IN7-vI-TRi"/>
                     <constraint firstItem="M7A-iU-lKI" firstAttribute="leading" secondItem="doR-LN-Ugh" secondAttribute="trailing" constant="8" symbolic="YES" id="P9F-Mr-kbl"/>
-                    <constraint firstItem="M7A-iU-lKI" firstAttribute="top" secondItem="Ghg-2k-8GH" secondAttribute="bottom" constant="20" symbolic="YES" id="SKL-Bn-DlY"/>
+                    <constraint firstAttribute="bottom" secondItem="HWq-jP-Ugv" secondAttribute="bottom" constant="20" symbolic="YES" id="RuX-xJ-uKY"/>
                     <constraint firstItem="qOf-id-Lh1" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="Uhl-nl-8Ew"/>
+                    <constraint firstItem="HWq-jP-Ugv" firstAttribute="leading" secondItem="M7A-iU-lKI" secondAttribute="trailing" constant="12" symbolic="YES" id="Xk7-UC-J1q"/>
+                    <constraint firstItem="nc8-Xj-AbY" firstAttribute="centerX" secondItem="qOf-id-Lh1" secondAttribute="centerX" id="gBI-6c-ZbN"/>
                     <constraint firstItem="doR-LN-Ugh" firstAttribute="centerY" secondItem="M7A-iU-lKI" secondAttribute="centerY" id="gId-yB-qlG"/>
                     <constraint firstItem="doR-LN-Ugh" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="goC-p3-m9T"/>
                     <constraint firstItem="qOf-id-Lh1" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="30" id="gxj-Mn-JAX"/>
+                    <constraint firstItem="HWq-jP-Ugv" firstAttribute="top" secondItem="Ghg-2k-8GH" secondAttribute="bottom" constant="20" symbolic="YES" id="h4e-BK-Fgn"/>
+                    <constraint firstItem="nc8-Xj-AbY" firstAttribute="width" secondItem="qOf-id-Lh1" secondAttribute="width" id="hgQ-wd-kVz"/>
+                    <constraint firstItem="nc8-Xj-AbY" firstAttribute="centerY" secondItem="qOf-id-Lh1" secondAttribute="centerY" id="ixr-aP-ji8"/>
                     <constraint firstItem="Ghg-2k-8GH" firstAttribute="top" secondItem="qOf-id-Lh1" secondAttribute="bottom" constant="20" id="qIh-EF-NRG"/>
                     <constraint firstAttribute="trailing" secondItem="Ghg-2k-8GH" secondAttribute="trailing" constant="12" symbolic="YES" id="tez-1O-nl2"/>
                 </constraints>
@@ -280,6 +351,7 @@
         </arrayController>
     </objects>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="14" height="16"/>
         <image name="doc.plaintext.fill" catalog="system" width="14" height="16"/>
     </resources>
 </document>

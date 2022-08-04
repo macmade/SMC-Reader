@@ -44,9 +44,6 @@ class SMCDataTypeTransformer: ValueTransformer
             return "--"
         }
         
-        switch data.type
-        {
-            case .Test: return "Test"
-        }
+        return NSString( fourCC: data.type )
     }
 }

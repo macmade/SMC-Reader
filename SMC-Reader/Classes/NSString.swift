@@ -22,33 +22,17 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-import Cocoa
+import Foundation
 
-@objc class SMCData: NSObject
+@objc extension NSString
 {
-    @objc public dynamic var key:  UInt32
-    @objc public dynamic var type: UInt32
-    @objc public dynamic var data: Data
-    
-    @objc public init( key: UInt32, type: UInt32, data: Data )
+    @objc convenience init( fourCC: UInt32 )
     {
-        self.key   = key
-        self.type  = type
-        self.data  = data
-    }
-    
-    override func isEqual( _ object: Any? ) -> Bool
-    {
-        self.isEqual( to: object )
-    }
-    
-    override func isEqual( to object: Any? ) -> Bool
-    {
-        guard let data = object as? SMCData else
-        {
-            return false
-        }
+        let c1 = UInt8( ( fourCC >> 24 ) & 0xFF )
+        let c2 = UInt8( ( fourCC >> 16 ) & 0xFF )
+        let c3 = UInt8( ( fourCC >>  8 ) & 0xFF )
+        let c4 = UInt8( ( fourCC >>  0 ) & 0xFF )
         
-        return self.key == data.key
+        self.init( format: "%c%c%c%c", c1, c2, c3, c4 )
     }
 }

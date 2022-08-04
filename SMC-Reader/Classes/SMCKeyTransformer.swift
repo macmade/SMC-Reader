@@ -24,31 +24,26 @@
 
 import Cocoa
 
-@objc class SMCData: NSObject
+@objc( SMCKeyTransformer )
+class SMCKeyTransformer: ValueTransformer
 {
-    @objc public dynamic var key:  UInt32
-    @objc public dynamic var type: UInt32
-    @objc public dynamic var data: Data
-    
-    @objc public init( key: UInt32, type: UInt32, data: Data )
+    override class func transformedValueClass() -> AnyClass
     {
-        self.key   = key
-        self.type  = type
-        self.data  = data
+        NSString.self
     }
     
-    override func isEqual( _ object: Any? ) -> Bool
+    override class func allowsReverseTransformation() -> Bool
     {
-        self.isEqual( to: object )
+        false
     }
     
-    override func isEqual( to object: Any? ) -> Bool
+    override func transformedValue( _ value: Any? ) -> Any?
     {
-        guard let data = object as? SMCData else
+        guard let data = value as? SMCData else
         {
-            return false
+            return "--"
         }
         
-        return self.key == data.key
+        return NSString( fourCC: data.key )
     }
 }

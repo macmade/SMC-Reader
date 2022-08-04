@@ -18,6 +18,9 @@
 		05BD46FB289AE19A00F4FF16 /* DataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46FA289AE19A00F4FF16 /* DataTransformer.swift */; };
 		05BD46FD289AF1BB00F4FF16 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46FC289AF1BB00F4FF16 /* NSError.swift */; };
 		05BD4701289AF37200F4FF16 /* SMC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4700289AF37200F4FF16 /* SMC.m */; };
+		05BD4732289C58AE00F4FF16 /* NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4731289C58AE00F4FF16 /* NSString.swift */; };
+		05BD4734289C59AA00F4FF16 /* SMCKeyTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4733289C59AA00F4FF16 /* SMCKeyTransformer.swift */; };
+		05BD4736289C5A7C00F4FF16 /* SMCValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4735289C5A7C00F4FF16 /* SMCValueTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +90,9 @@
 		05BD46FF289AF37200F4FF16 /* SMC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMC.h; sourceTree = "<group>"; };
 		05BD4700289AF37200F4FF16 /* SMC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMC.m; sourceTree = "<group>"; };
 		05BD4729289C10F400F4FF16 /* SMC-Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SMC-Internal.h"; sourceTree = "<group>"; };
+		05BD4731289C58AE00F4FF16 /* NSString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSString.swift; sourceTree = "<group>"; };
+		05BD4733289C59AA00F4FF16 /* SMCKeyTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCKeyTransformer.swift; sourceTree = "<group>"; };
+		05BD4735289C5A7C00F4FF16 /* SMCValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCValueTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,11 +272,14 @@
 				05BD46FA289AE19A00F4FF16 /* DataTransformer.swift */,
 				05BD46E9289ACF2900F4FF16 /* MainWindowController.swift */,
 				05BD46FC289AF1BB00F4FF16 /* NSError.swift */,
-				05BD46FF289AF37200F4FF16 /* SMC.h */,
+				05BD4731289C58AE00F4FF16 /* NSString.swift */,
 				05BD4729289C10F400F4FF16 /* SMC-Internal.h */,
+				05BD46FF289AF37200F4FF16 /* SMC.h */,
 				05BD4700289AF37200F4FF16 /* SMC.m */,
 				05BD46F6289ADF2800F4FF16 /* SMCData.swift */,
 				05BD46F8289AE19100F4FF16 /* SMCDataTypeTransformer.swift */,
+				05BD4733289C59AA00F4FF16 /* SMCKeyTransformer.swift */,
+				05BD4735289C5A7C00F4FF16 /* SMCValueTransformer.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -361,8 +370,11 @@
 				05BD46F7289ADF2800F4FF16 /* SMCData.swift in Sources */,
 				05BD46EA289ACF2900F4FF16 /* MainWindowController.swift in Sources */,
 				05BD4701289AF37200F4FF16 /* SMC.m in Sources */,
+				05BD4732289C58AE00F4FF16 /* NSString.swift in Sources */,
 				05BD469E289ACB9E00F4FF16 /* ApplicationDelegate.swift in Sources */,
 				05BD46F9289AE19100F4FF16 /* SMCDataTypeTransformer.swift in Sources */,
+				05BD4734289C59AA00F4FF16 /* SMCKeyTransformer.swift in Sources */,
+				05BD4736289C5A7C00F4FF16 /* SMCValueTransformer.swift in Sources */,
 				05BD46FD289AF1BB00F4FF16 /* NSError.swift in Sources */,
 				05BD46FB289AE19A00F4FF16 /* DataTransformer.swift in Sources */,
 			);

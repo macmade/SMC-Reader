@@ -29,10 +29,10 @@ class MainWindowController: NSWindowController
 {
     @IBOutlet private var dataController: NSArrayController!
     
-    private var smc  = SMC()
-    private var timer: Timer?
+    private var smc = SMC()
     
-    @objc private dynamic var data = [ SMCData ]()
+    @objc private dynamic var data       = [ SMCData ]()
+    @objc private dynamic var refreshing = false
     
     override var windowNibName: NSNib.Name?
     {
@@ -48,15 +48,10 @@ class MainWindowController: NSWindowController
             NSSortDescriptor( key: "key", ascending: true )
         ]
         
-        self.timer = Timer.scheduledTimer( withTimeInterval: 1, repeats: true )
-        {
-            _ in self.update()
-        }
-        
         do
         {
             try self.smc.open()
-            self.update()
+            self.refresh( nil )
         }
         catch let error
         {
@@ -65,13 +60,16 @@ class MainWindowController: NSWindowController
         }
     }
     
-    private func update()
+    @IBAction public func refresh( _ sender: Any? )
     {
+        self.refreshing = true
+        
         self.smc.readAllKeys
         {
             data in DispatchQueue.main.async
             {
-                self.data = data
+                self.data       = data
+                self.refreshing = false
             }
         }
     }
@@ -89,6 +87,7 @@ class MainWindowController: NSWindowController
         panel.canCreateDirectories = true
         panel.allowsOtherFileTypes = false
         panel.allowedContentTypes  = [ .plainText ]
+        panel.nameFieldStringValue = "SMC"
         
         panel.beginSheetModal( for: window )
         {
@@ -119,24 +118,17 @@ class MainWindowController: NSWindowController
         {
             item in
             
-            guard let type = SMCDataTypeTransformer().transformedValue( item ) as? String,
+            guard let key  = SMCKeyTransformer().transformedValue( item ) as? String,
+                  let type = SMCDataTypeTransformer().transformedValue( item ) as? String,
                   let data = DataTransformer().transformedValue( item.data )   as? String
             else
             {
                 return nil
             }
             
-            let value: String =
-            {
-                guard let value = item.value else
-                {
-                    return ""
-                }
-                
-                return String( describing: value )
-            }()
+            let value = SMCValueTransformer().transformedValue( item ) as? String ?? ""
             
-            return "\( item.key )\t\( type )\t\( value )\t\( data )"
+            return "\( key )\t\( type )\t\( value )\t\( data )"
         }
         
         guard let data = lines.joined( separator: "\n" ).data( using: .utf8 ) else

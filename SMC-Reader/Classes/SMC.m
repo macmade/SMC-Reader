@@ -46,10 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 - ( BOOL )callSMCFunction: ( uint32_t )function input: ( const SMCParamStruct * )input output: ( SMCParamStruct * )output;
 - ( BOOL )readSMCKeyInfo: ( SMCKeyInfoData * )info forKey: ( uint32_t )key;
 - ( BOOL )readSMCKey: ( uint32_t * )key atIndex: ( uint32_t )index;
-- ( BOOL )readSMCKey: ( uint32_t )key buffer: ( uint8_t * )buffer maxSize: ( uint32_t * )maxSize;
+- ( BOOL )readSMCKey: ( uint32_t )key buffer: ( uint8_t * )buffer maxSize: ( uint32_t * )maxSize keyInfo: ( SMCKeyInfoData * _Nullable )keyInfo;
 - ( uint32_t )readSMCKeyCount;
 - ( uint32_t )readInteger: ( uint8_t * )data size: ( uint32_t )size;
-- ( NSString * )nameForSMCKey: ( uint32_t )key;
 
 @end
 
@@ -184,7 +183,7 @@ NS_ASSUME_NONNULL_END
     return YES;
 }
 
-- ( BOOL )readSMCKey: ( uint32_t )key buffer: ( uint8_t * )buffer maxSize: ( uint32_t * )maxSize
+- ( BOOL )readSMCKey: ( uint32_t )key buffer: ( uint8_t * )buffer maxSize: ( uint32_t * )maxSize keyInfo: ( SMCKeyInfoData * _Nullable )keyInfo
 {
     if( key == 0 || buffer == NULL || maxSize == NULL )
     {
@@ -223,6 +222,11 @@ NS_ASSUME_NONNULL_END
         return NO;
     }
     
+    if( keyInfo != NULL )
+    {
+        *( keyInfo ) = info;
+    }
+    
     *( maxSize ) = info.dataSize;
     
     bzero( buffer, *( maxSize ) );
@@ -249,7 +253,7 @@ NS_ASSUME_NONNULL_END
     
     bzero( data, size );
     
-    if( [ self readSMCKey: kSMCKeyNKEY buffer: data maxSize: &size ] == NO )
+    if( [ self readSMCKey: kSMCKeyNKEY buffer: data maxSize: &size keyInfo: NULL ] == NO )
     {
         return 0;
     }
@@ -274,16 +278,6 @@ NS_ASSUME_NONNULL_END
     return n;
 }
 
-- ( NSString * )nameForSMCKey: ( uint32_t )key
-{
-    uint8_t c1 = ( key >> 24 ) & 0xFF;
-    uint8_t c2 = ( key >> 16 ) & 0xFF;
-    uint8_t c3 = ( key >>  8 ) & 0xFF;
-    uint8_t c4 = ( key >>  0 ) & 0xFF;
-    
-    return [ NSString stringWithFormat: @"%c%c%c%c", c1, c2, c3, c4 ];
-}
-
 - ( void )readAllKeys: ( void ( ^ )( NSArray< SMCData * > * ) )completion
 {
     dispatch_async
@@ -303,16 +297,16 @@ NS_ASSUME_NONNULL_END
                     continue;
                 }
                 
-                uint8_t  data[ 32 ];
-                uint32_t size = sizeof( data );
+                SMCKeyInfoData info;
+                uint8_t        data[ 32 ];
+                uint32_t       size = sizeof( data );
                 
-                if( [ self readSMCKey: key buffer: data maxSize: &size ] == NO )
+                if( [ self readSMCKey: key buffer: data maxSize: &size keyInfo: &info ] == NO )
                 {
                     continue;
                 }
                 
-                NSString * name = [ self nameForSMCKey: key ];
-                SMCData  * item = [ [ SMCData alloc ] initWithKey: name type: SMCDataTypeTest data: [ NSData data ] ];
+                SMCData * item = [ [ SMCData alloc ] initWithKey: key type: info.dataType data: [ NSData dataWithBytes: data length: size ] ];
                 
                 [ items addObject: item ];
             }
