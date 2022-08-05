@@ -40,8 +40,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SMC()
 
-@property( nonatomic, readwrite, strong ) dispatch_queue_t queue;
-@property( nonatomic, readwrite, assign ) io_connect_t     connection;
+@property( nonatomic, readwrite, strong ) dispatch_queue_t                               queue;
+@property( nonatomic, readwrite, assign ) io_connect_t                                   connection;
+@property( nonatomic, readwrite, strong ) NSMutableArray< NSNumber * >                 * keys;
+@property( nonatomic, readwrite, strong ) NSMutableDictionary< NSNumber *, NSValue * > * keyInfoCache;
 
 - ( BOOL )callSMCFunction: ( uint32_t )function input: ( const SMCParamStruct * )input output: ( SMCParamStruct * )output;
 - ( BOOL )readSMCKeyInfo: ( SMCKeyInfoData * )info forKey: ( uint32_t )key;
@@ -60,7 +62,9 @@ NS_ASSUME_NONNULL_END
 {
     if( ( self = [ super init ] ) )
     {
-        self.queue = dispatch_queue_create( "com.xs-labs.SMC-Reader", DISPATCH_QUEUE_SERIAL );
+        self.queue        = dispatch_queue_create( "com.xs-labs.SMC-Reader", DISPATCH_QUEUE_SERIAL );
+        self.keys         = [ NSMutableArray new ];
+        self.keyInfoCache = [ NSMutableDictionary new ];
     }
     
     return self;
@@ -128,6 +132,17 @@ NS_ASSUME_NONNULL_END
         return NO;
     }
     
+    {
+        NSValue * cached = self.keyInfoCache[ [ NSNumber numberWithUnsignedInt: key ] ];
+        
+        if( cached != nil )
+        {
+            *( info ) = *( ( SMCKeyInfoData * )( cached.pointerValue ) );
+            
+            return YES;
+        }
+    }
+    
     SMCParamStruct input;
     SMCParamStruct output;
     
@@ -148,6 +163,16 @@ NS_ASSUME_NONNULL_END
     }
     
     *( info ) = output.keyInfo;
+    
+    {
+        SMCKeyInfoData * cached = calloc( sizeof( SMCKeyInfoData ), 1 );
+        
+        if( cached != NULL )
+        {
+            *( cached )                                                  = output.keyInfo;
+            self.keyInfoCache[ [ NSNumber numberWithUnsignedInt: key ] ] = [ NSValue valueWithPointer: cached ];
+        }
+    }
     
     return YES;
 }
@@ -285,28 +310,40 @@ NS_ASSUME_NONNULL_END
         self.queue,
         ^( void )
         {
-            uint32_t count                      = [ self readSMCKeyCount ];
-            NSMutableArray< SMCData * > * items = [ [ NSMutableArray alloc ] initWithCapacity: count ];
-            
-            for( uint32_t i = 0; i < count; i++ )
+            if( self.keys.count == 0 )
             {
-                uint32_t key;
+                uint32_t count = [ self readSMCKeyCount ];
                 
-                if( [ self readSMCKey: &key atIndex: i ] == NO )
+                for( uint32_t i = 0; i < count; i++ )
                 {
-                    continue;
+                    uint32_t key = 0;
+                    
+                    if( [ self readSMCKey: &key atIndex: i ] == NO )
+                    {
+                        continue;
+                    }
+                    
+                    if( key != 0 )
+                    {
+                        [ self.keys addObject: [ NSNumber numberWithUnsignedInt: key ] ];
+                    }
                 }
-                
+            }
+            
+            NSMutableArray< SMCData * > * items = [ [ NSMutableArray alloc ] initWithCapacity: self.keys.count ];
+            
+            for( NSNumber * key in self.keys )
+            {
                 SMCKeyInfoData info;
                 uint8_t        data[ 32 ];
                 uint32_t       size = sizeof( data );
                 
-                if( [ self readSMCKey: key buffer: data maxSize: &size keyInfo: &info ] == NO )
+                if( [ self readSMCKey: key.unsignedIntValue buffer: data maxSize: &size keyInfo: &info ] == NO )
                 {
                     continue;
                 }
                 
-                SMCData * item = [ [ SMCData alloc ] initWithKey: key type: info.dataType data: [ NSData dataWithBytes: data length: size ] ];
+                SMCData * item = [ [ SMCData alloc ] initWithKey: key.unsignedIntValue type: info.dataType data: [ NSData dataWithBytes: data length: size ] ];
                 
                 [ items addObject: item ];
             }
