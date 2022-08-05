@@ -19,6 +19,7 @@
 		05BD4732289C58AE00F4FF16 /* NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4731289C58AE00F4FF16 /* NSString.swift */; };
 		05BD4738289C5BD800F4FF16 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4737289C5BD800F4FF16 /* String.swift */; };
 		05BD473A289C61BB00F4FF16 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4739289C61BB00F4FF16 /* Data.swift */; };
+		05BD4740289D081700F4FF16 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05BD473F289D081700F4FF16 /* Icon.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		05BD4731289C58AE00F4FF16 /* NSString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSString.swift; sourceTree = "<group>"; };
 		05BD4737289C5BD800F4FF16 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		05BD4739289C61BB00F4FF16 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		05BD473F289D081700F4FF16 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 		05BD46E5289ACD2800F4FF16 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				05BD473F289D081700F4FF16 /* Icon.icns */,
 				05BD46F0289ACFD900F4FF16 /* AboutWindowController.xib */,
 				05BD46A1289ACB9E00F4FF16 /* MainMenu.xib */,
 				05BD46EF289ACF9E00F4FF16 /* MainWindowController.xib */,
@@ -348,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05BD46F2289ACFD900F4FF16 /* AboutWindowController.xib in Resources */,
+				05BD4740289D081700F4FF16 /* Icon.icns in Resources */,
 				05BD46ED289ACF9E00F4FF16 /* MainWindowController.xib in Resources */,
 				05BD46A3289ACB9E00F4FF16 /* MainMenu.xib in Resources */,
 			);

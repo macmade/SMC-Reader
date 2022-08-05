@@ -30,40 +30,6 @@
                             <view wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I22-gm-fRh">
                                 <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                                 <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="EsH-VT-cdU">
-                                        <rect key="frame" x="20" y="81" width="760" height="489"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EZ5-FQ-qhu">
-                                                <rect key="frame" x="289" y="232" width="182" height="26"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Loading SMC Data" id="h9K-Fh-9Bw">
-                                                    <font key="font" textStyle="title1" name=".SFNS-Regular"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m62-0N-IQf">
-                                                <rect key="frame" x="337" y="208" width="86" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Please Wait..." id="5n9-lO-r0q">
-                                                    <font key="font" usesAppearanceFont="YES"/>
-                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="EZ5-FQ-qhu" firstAttribute="centerY" secondItem="EsH-VT-cdU" secondAttribute="centerY" id="Xza-Ho-J2k"/>
-                                            <constraint firstItem="m62-0N-IQf" firstAttribute="top" secondItem="EZ5-FQ-qhu" secondAttribute="bottom" constant="8" symbolic="YES" id="cKK-tb-18D"/>
-                                            <constraint firstItem="EZ5-FQ-qhu" firstAttribute="centerX" secondItem="EsH-VT-cdU" secondAttribute="centerX" id="dbi-aa-CLl"/>
-                                            <constraint firstItem="m62-0N-IQf" firstAttribute="centerX" secondItem="EZ5-FQ-qhu" secondAttribute="centerX" id="o0a-VV-j3r"/>
-                                        </constraints>
-                                        <connections>
-                                            <binding destination="-2" name="hidden" keyPath="self.refreshing" id="2kd-jA-ivQ">
-                                                <dictionary key="options">
-                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                </dictionary>
-                                            </binding>
-                                        </connections>
-                                    </customView>
                                     <scrollView autoresizesSubviews="NO" borderType="line" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0y-rl-7sQ">
                                         <rect key="frame" x="20" y="81" width="760" height="489"/>
                                         <clipView key="contentView" autoresizesSubviews="NO" drawsBackground="NO" id="cL7-id-5Bz">
@@ -303,6 +269,50 @@
                                             <binding destination="-2" name="hidden" keyPath="self.refreshing" id="QFw-4n-ZoS"/>
                                         </connections>
                                     </scrollView>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="EsH-VT-cdU">
+                                        <rect key="frame" x="20" y="81" width="760" height="489"/>
+                                        <subviews>
+                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="icJ-Qm-mD6">
+                                                <rect key="frame" x="252" y="117" width="256" height="256"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="256" id="Vai-vv-BY0"/>
+                                                    <constraint firstAttribute="width" constant="256" id="qAp-mq-d1G"/>
+                                                </constraints>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="xVQ-nD-7HM"/>
+                                            </imageView>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EZ5-FQ-qhu">
+                                                <rect key="frame" x="289" y="83" width="182" height="26"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Loading SMC Data" id="h9K-Fh-9Bw">
+                                                    <font key="font" textStyle="title1" name=".SFNS-Regular"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m62-0N-IQf">
+                                                <rect key="frame" x="337" y="59" width="86" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Please Wait..." id="5n9-lO-r0q">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="icJ-Qm-mD6" firstAttribute="centerX" secondItem="EsH-VT-cdU" secondAttribute="centerX" id="Qp7-mv-x1M"/>
+                                            <constraint firstItem="m62-0N-IQf" firstAttribute="top" secondItem="EZ5-FQ-qhu" secondAttribute="bottom" constant="8" symbolic="YES" id="cKK-tb-18D"/>
+                                            <constraint firstItem="icJ-Qm-mD6" firstAttribute="centerY" secondItem="EsH-VT-cdU" secondAttribute="centerY" id="hjr-gj-Cve"/>
+                                            <constraint firstItem="EZ5-FQ-qhu" firstAttribute="centerX" secondItem="icJ-Qm-mD6" secondAttribute="centerX" id="iRn-3R-u4a"/>
+                                            <constraint firstItem="m62-0N-IQf" firstAttribute="centerX" secondItem="EZ5-FQ-qhu" secondAttribute="centerX" id="o0a-VV-j3r"/>
+                                            <constraint firstItem="EZ5-FQ-qhu" firstAttribute="top" secondItem="icJ-Qm-mD6" secondAttribute="bottom" constant="8" symbolic="YES" id="sRN-eq-sTj"/>
+                                        </constraints>
+                                        <connections>
+                                            <binding destination="-2" name="hidden" keyPath="self.refreshing" id="2kd-jA-ivQ">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </customView>
                                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="7M1-Rw-BJy">
                                         <rect key="frame" x="20" y="58" width="760" height="5"/>
                                     </box>
@@ -399,6 +409,7 @@
         </arrayController>
     </objects>
     <resources>
+        <image name="NSApplicationIcon" width="32" height="32"/>
         <image name="arrow.clockwise" catalog="system" width="14" height="16"/>
         <image name="doc.plaintext.fill" catalog="system" width="14" height="16"/>
     </resources>
