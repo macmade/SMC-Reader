@@ -92,4 +92,19 @@ extension Data
     {
         Float64( bitPattern: self.uint64 )
     }
+    
+    var ioFloat: Double
+    {
+        if self.count != 8
+        {
+            return 0
+        }
+        
+        let u64        = self.uint64
+        let integral   = Double( u64 >> 16 )
+        let mask       = pow( 2.0, 16.0 ) - 1
+        let fractional = Double( u64 & UInt64( mask ) ) / Double( 1 << 16 )
+        
+        return integral + fractional
+    }
 }

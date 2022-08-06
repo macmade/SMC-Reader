@@ -112,6 +112,7 @@ import Cocoa
             case "si64": return data.sint64.byteSwapped
             case "ui64": return data.uint64.byteSwapped
             case "flt ": return data.float32
+            case "ioft": return data.ioFloat
             case "flag": return data[ 0 ] == 1 ? "True" : "False"
             case "ch8*": return String( data: Data( data.reversed() ), encoding: .utf8 )
             
