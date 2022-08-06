@@ -25,7 +25,7 @@
 import Cocoa
 import UniformTypeIdentifiers
 
-class MainWindowController: NSWindowController
+class MainWindowController: NSWindowController, NSTableViewDataSource, NSTableViewDelegate
 {
     @IBOutlet private var dataController: NSArrayController!
     @IBOutlet private var tableView:      NSTableView!
@@ -59,6 +59,8 @@ class MainWindowController: NSWindowController
             NSAlert( error: error ).runModal()
             NSApp.terminate( nil )
         }
+        
+        self.tableView.setDraggingSourceOperationMask( .copy, forLocal: false )
     }
     
     @IBAction public func saveDocument( _ sender: Any? )
@@ -153,5 +155,15 @@ class MainWindowController: NSWindowController
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.writeObjects( items )
+    }
+    
+    func tableView( _ tableView: NSTableView, pasteboardWriterForRow row: Int ) -> NSPasteboardWriting?
+    {
+        guard let arranged = self.dataController.arrangedObjects as? [ SMCData ], row < arranged.count else
+        {
+            return nil
+        }
+        
+        return arranged[ row ]
     }
 }
