@@ -10,7 +10,7 @@ SMC-Reader
 
 ### About
 
-...
+![Screenshot](Assets/Screenshot.png "Screenshot")
 
 License
 -------
