@@ -20,7 +20,46 @@
 		05BD4738289C5BD800F4FF16 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4737289C5BD800F4FF16 /* String.swift */; };
 		05BD473A289C61BB00F4FF16 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4739289C61BB00F4FF16 /* Data.swift */; };
 		05BD4740289D081700F4FF16 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05BD473F289D081700F4FF16 /* Icon.icns */; };
+		05BD4758289EAEDA00F4FF16 /* GitHubUpdates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05BD4752289EAECD00F4FF16 /* GitHubUpdates.framework */; };
+		05BD475A289EAEE500F4FF16 /* GitHubUpdates.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05BD4752289EAECD00F4FF16 /* GitHubUpdates.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05BD4751289EAECD00F4FF16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05BD474C289EAECD00F4FF16 /* GitHubUpdates.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05F82B251EF32EA700EC8A93;
+			remoteInfo = GitHubUpdates;
+		};
+		05BD4753289EAECD00F4FF16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05BD474C289EAECD00F4FF16 /* GitHubUpdates.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0555EBA01EF3DDA10016167F;
+			remoteInfo = Relauncher;
+		};
+		05BD4755289EAED600F4FF16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05BD474C289EAECD00F4FF16 /* GitHubUpdates.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 05F82B241EF32EA700EC8A93;
+			remoteInfo = GitHubUpdates;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		05BD4759289EAEDF00F4FF16 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				05BD475A289EAEE500F4FF16 /* GitHubUpdates.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		05BD469A289ACB9E00F4FF16 /* SMC Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SMC Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +130,7 @@
 		05BD4737289C5BD800F4FF16 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		05BD4739289C61BB00F4FF16 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		05BD473F289D081700F4FF16 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
+		05BD474C289EAECD00F4FF16 /* GitHubUpdates.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GitHubUpdates.xcodeproj; path = Submodules/GitHubUpdates/GitHubUpdates.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05BD4758289EAEDA00F4FF16 /* GitHubUpdates.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,9 +151,11 @@
 				05BD46AA289ACC2F00F4FF16 /* README.md */,
 				05BD46E7289ACD6400F4FF16 /* CODE_OF_CONDUCT.md */,
 				05BD46E6289ACD6400F4FF16 /* LICENSE */,
+				05BD474C289EAECD00F4FF16 /* GitHubUpdates.xcodeproj */,
 				05BD46AC289ACC4600F4FF16 /* xcconfig */,
 				05BD469C289ACB9E00F4FF16 /* SMC-Reader */,
 				05BD469B289ACB9E00F4FF16 /* Products */,
+				05BD4757289EAEDA00F4FF16 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -291,6 +334,22 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		05BD474D289EAECD00F4FF16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05BD4752289EAECD00F4FF16 /* GitHubUpdates.framework */,
+				05BD4754289EAECD00F4FF16 /* Relauncher */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05BD4757289EAEDA00F4FF16 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -302,10 +361,12 @@
 				05BD4697289ACB9E00F4FF16 /* Frameworks */,
 				05BD474B289EAE8D00F4FF16 /* ShellScript */,
 				05BD4698289ACB9E00F4FF16 /* Resources */,
+				05BD4759289EAEDF00F4FF16 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				05BD4756289EAED600F4FF16 /* PBXTargetDependency */,
 			);
 			name = "SMC Reader";
 			productName = "SMC Reader";
@@ -339,12 +400,35 @@
 			mainGroup = 05BD4691289ACB9E00F4FF16;
 			productRefGroup = 05BD469B289ACB9E00F4FF16 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 05BD474D289EAECD00F4FF16 /* Products */;
+					ProjectRef = 05BD474C289EAECD00F4FF16 /* GitHubUpdates.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				05BD4699289ACB9E00F4FF16 /* SMC Reader */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		05BD4752289EAECD00F4FF16 /* GitHubUpdates.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GitHubUpdates.framework;
+			remoteRef = 05BD4751289EAECD00F4FF16 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		05BD4754289EAECD00F4FF16 /* Relauncher */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Relauncher;
+			remoteRef = 05BD4753289EAECD00F4FF16 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		05BD4698289ACB9E00F4FF16 /* Resources */ = {
@@ -398,6 +482,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05BD4756289EAED600F4FF16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GitHubUpdates;
+			targetProxy = 05BD4755289EAED600F4FF16 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		05BD46A1289ACB9E00F4FF16 /* MainMenu.xib */ = {

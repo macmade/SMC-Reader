@@ -23,6 +23,7 @@
  ******************************************************************************/
 
 import Cocoa
+import GitHubUpdates
 
 @main class ApplicationDelegate: NSObject, NSApplicationDelegate
 {
@@ -30,6 +31,8 @@ import Cocoa
     private let mainWindowController  = MainWindowController()
     
     private var windowObserver: Any?
+    
+    @IBOutlet private var updater: GitHubUpdater!
     
     func applicationDidFinishLaunching( _ notification: Notification )
     {
@@ -49,6 +52,11 @@ import Cocoa
                 NSApp.terminate( nil )
             }
         }
+        
+        DispatchQueue.main.asyncAfter( deadline: .now() + .seconds( 2 ) )
+        {
+            self.updater.checkForUpdatesInBackground()
+        }
     }
     
     @IBAction public func showAboutWindow( _ sender: Any? )
@@ -61,5 +69,10 @@ import Cocoa
         }
         
         self.aboutWindowController.window?.makeKeyAndOrderFront( nil )
+    }
+    
+    @IBAction public func checkForUpdates( _ sender: Any? )
+    {
+        self.updater.checkForUpdates( nil )
     }
 }
