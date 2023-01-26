@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_END
 
 - ( BOOL )open: ( NSError * _Nullable __autoreleasing * )error
 {
-    io_service_t smc = IOServiceGetMatchingService( kIOMainPortDefault, IOServiceMatching( "AppleSMC" ) );
+    io_service_t smc = IOServiceGetMatchingService( kIOMasterPortDefault, IOServiceMatching( "AppleSMC" ) );
     
     if( smc == IO_OBJECT_NULL )
     {
