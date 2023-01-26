@@ -107,4 +107,17 @@ extension Data
 
         return integral + fractional
     }
+
+    var sp78: Double
+    {
+        if self.count != 2
+        {
+            return 0
+        }
+
+        let b1 = Double( self[ 1 ] & 0x7F )
+        let b2 = Double( self[ 0 ] ) / Double( 1 << 8 )
+
+        return b1 + b2
+    }
 }

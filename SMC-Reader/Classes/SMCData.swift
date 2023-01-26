@@ -116,6 +116,7 @@ class SMCData: NSObject, NSPasteboardWriting
             case "ui64": return data.uint64.byteSwapped
             case "flt ": return data.float32
             case "ioft": return data.ioFloat
+            case "sp78": return data.sp78
             case "flag": return data[ 0 ] == 1 ? "True" : "False"
             case "ch8*": return String( data: Data( data.reversed() ), encoding: .utf8 )
 
