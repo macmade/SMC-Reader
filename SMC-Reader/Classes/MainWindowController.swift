@@ -60,7 +60,7 @@ class MainWindowController: NSWindowController, NSTableViewDataSource, NSTableVi
 
         self.dataController.sortDescriptors =
             [
-                NSSortDescriptor( key: "key", ascending: true ),
+                NSSortDescriptor( key: "keyName", ascending: true, selector: #selector( NSString.localizedCaseInsensitiveCompare( _: ) ) ),
             ]
 
         self.refresh( nil )
