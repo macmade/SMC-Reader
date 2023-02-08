@@ -56,6 +56,11 @@ public extension SMCData
 
     var stringValue: String
     {
+        if self.typeName == "flag", let flag = self.value as? Bool
+        {
+            return flag ? "True" : "False"
+        }
+
         if let value = self.value
         {
             return String( describing: value )
