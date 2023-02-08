@@ -228,4 +228,89 @@ class MainWindowController: NSWindowController, NSTableViewDataSource, NSTableVi
 
         return arranged[ row ]
     }
+
+    @IBAction
+    public func exportDumpFile( _ sender: Any? )
+    {
+        guard let window = self.window
+        else
+        {
+            NSSound.beep()
+
+            return
+        }
+
+        let filename: String
+
+        if let hardware = self.hardwareModel()
+        {
+            filename = "SMC-\( hardware )"
+        }
+        else
+        {
+            filename = "SMC"
+        }
+
+        let panel                  = NSSavePanel()
+        panel.canCreateDirectories = true
+        panel.allowsOtherFileTypes = false
+        panel.allowedContentTypes  = [ .plainText ]
+        panel.nameFieldStringValue = filename
+
+        panel.beginSheetModal( for: window )
+        {
+            guard let url = panel.url, $0 == .OK
+            else
+            {
+                return
+            }
+
+            DispatchQueue.global( qos: .userInitiated ).async
+            {
+                do
+                {
+                    try self.exportDumpFile( to: url )
+                }
+                catch
+                {
+                    DispatchQueue.main.async
+                    {
+                        NSAlert( error: error ).runModal()
+                    }
+                }
+            }
+        }
+    }
+
+    public func hardwareModel() -> String?
+    {
+        var length: size_t = 0
+
+        guard sysctlbyname( "hw.model", nil, &length, nil, 0 ) == 0, length > 0
+        else
+        {
+            return nil
+        }
+
+        var model = [ CChar ]( repeating: 0,  count: length )
+
+        guard sysctlbyname( "hw.model", &model, &length, nil, 0 ) == 0, length > 0
+        else
+        {
+            return nil
+        }
+
+        return String( cString: model )
+    }
+
+    private func exportDumpFile( to url: URL ) throws
+    {
+        guard let data = SMCDump.produce().data( using: .utf8 )
+        else
+        {
+            throw SMCHelper.error( title: "Cannot Export Dump File", message: "Cannot create UTF-8 data from text.", code: 0 )
+        }
+
+        try data.write( to: url )
+    }
 }

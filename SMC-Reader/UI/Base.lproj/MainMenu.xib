@@ -109,6 +109,11 @@
                                     <action selector="saveDocument:" target="-1" id="teZ-XB-qJY"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Export Dump File..." keyEquivalent="e" id="YsS-Z9-gb8">
+                                <connections>
+                                    <action selector="exportDumpFile:" target="-1" id="gd1-U8-X8x"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
                             <menuItem title="Refresh" keyEquivalent="r" id="aTl-1u-JFS">
                                 <connections>
