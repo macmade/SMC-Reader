@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -326,12 +327,8 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </searchFieldCell>
                                         <connections>
-                                            <binding destination="zKO-uc-O3J" name="predicate" keyPath="filterPredicate" id="k84-rT-WrE">
-                                                <dictionary key="options">
-                                                    <string key="NSDisplayName">predicate</string>
-                                                    <string key="NSPredicateFormat">keyName contains[c] $value || typeName contains[c] $value</string>
-                                                </dictionary>
-                                            </binding>
+                                            <binding destination="-2" name="value" keyPath="self.searchText" id="hMI-to-pk3"/>
+                                            <outlet property="searchMenuTemplate" destination="CTz-zs-Byw" id="bVc-0F-0Tc"/>
                                         </connections>
                                     </searchField>
                                     <button wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bEg-HS-iTu">
@@ -366,12 +363,12 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="bEg-HS-iTu" firstAttribute="leading" secondItem="Kc4-wF-shu" secondAttribute="trailing" constant="8" symbolic="YES" id="54E-23-Gim"/>
                                     <constraint firstAttribute="trailing" secondItem="U0y-rl-7sQ" secondAttribute="trailing" constant="20" symbolic="YES" id="7PA-lh-JMD"/>
                                     <constraint firstItem="U0y-rl-7sQ" firstAttribute="leading" secondItem="I22-gm-fRh" secondAttribute="leading" constant="20" symbolic="YES" id="82S-Ts-cEC"/>
                                     <constraint firstAttribute="trailing" secondItem="7M1-Rw-BJy" secondAttribute="trailing" constant="20" symbolic="YES" id="FDm-md-oUx"/>
                                     <constraint firstItem="eZc-Cu-3gN" firstAttribute="top" secondItem="7M1-Rw-BJy" secondAttribute="bottom" constant="20" symbolic="YES" id="IlS-Rv-DBk"/>
                                     <constraint firstAttribute="bottom" secondItem="eZc-Cu-3gN" secondAttribute="bottom" constant="20" symbolic="YES" id="K7M-d5-n9v"/>
-                                    <constraint firstItem="bEg-HS-iTu" firstAttribute="leading" secondItem="Kc4-wF-shu" secondAttribute="trailing" constant="8" symbolic="YES" id="MmI-o4-WwZ"/>
                                     <constraint firstItem="EsH-VT-cdU" firstAttribute="centerX" secondItem="U0y-rl-7sQ" secondAttribute="centerX" id="NJ2-PN-c9u"/>
                                     <constraint firstItem="eZc-Cu-3gN" firstAttribute="leading" secondItem="bEg-HS-iTu" secondAttribute="trailing" constant="12" symbolic="YES" id="NTA-uj-Lg7"/>
                                     <constraint firstItem="U0y-rl-7sQ" firstAttribute="top" secondItem="I22-gm-fRh" secondAttribute="top" constant="30" id="OpU-3S-yDW"/>
@@ -380,8 +377,8 @@
                                     <constraint firstItem="EsH-VT-cdU" firstAttribute="centerY" secondItem="U0y-rl-7sQ" secondAttribute="centerY" id="WSF-mU-OWh"/>
                                     <constraint firstAttribute="trailing" secondItem="eZc-Cu-3gN" secondAttribute="trailing" constant="20" symbolic="YES" id="hp4-HI-bkT"/>
                                     <constraint firstItem="EsH-VT-cdU" firstAttribute="width" secondItem="U0y-rl-7sQ" secondAttribute="width" id="nXM-VF-CQr"/>
+                                    <constraint firstItem="Kc4-wF-shu" firstAttribute="centerY" secondItem="bEg-HS-iTu" secondAttribute="centerY" id="rj9-sP-6Mt"/>
                                     <constraint firstItem="Kc4-wF-shu" firstAttribute="leading" secondItem="I22-gm-fRh" secondAttribute="leading" constant="20" symbolic="YES" id="tbx-oz-MRm"/>
-                                    <constraint firstItem="Kc4-wF-shu" firstAttribute="centerY" secondItem="bEg-HS-iTu" secondAttribute="centerY" id="ugP-6O-NzA"/>
                                     <constraint firstItem="bEg-HS-iTu" firstAttribute="centerY" secondItem="eZc-Cu-3gN" secondAttribute="centerY" id="v0z-0X-Qv7"/>
                                     <constraint firstItem="7M1-Rw-BJy" firstAttribute="leading" secondItem="I22-gm-fRh" secondAttribute="leading" constant="20" symbolic="YES" id="wef-A7-QfK"/>
                                 </constraints>
@@ -409,6 +406,17 @@
                 <binding destination="-2" name="contentArray" keyPath="self.data" id="Crk-oW-L4H"/>
             </connections>
         </arrayController>
+        <menu id="CTz-zs-Byw">
+            <items>
+                <menuItem title="Regular Expressions" id="inG-v6-rYk">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="toggleRegex:" target="-2" id="DKp-YW-cZS"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="31" y="562"/>
+        </menu>
     </objects>
     <resources>
         <image name="NSApplicationIcon" width="32" height="32"/>

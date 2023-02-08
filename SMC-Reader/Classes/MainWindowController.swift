@@ -34,6 +34,21 @@ class MainWindowController: NSWindowController, NSTableViewDataSource, NSTableVi
 
     @objc private dynamic var data       = [ SMCData ]()
     @objc private dynamic var refreshing = false
+    @objc private dynamic var regex      = false
+    {
+        didSet
+        {
+            self.updateFilterPredicate()
+        }
+    }
+
+    @objc private dynamic var searchText = ""
+    {
+        didSet
+        {
+            self.updateFilterPredicate()
+        }
+    }
 
     override var windowNibName: NSNib.Name?
     {
@@ -61,6 +76,52 @@ class MainWindowController: NSWindowController, NSTableViewDataSource, NSTableVi
         }
 
         self.tableView.setDraggingSourceOperationMask( .copy, forLocal: false )
+    }
+
+    private func updateFilterPredicate()
+    {
+        if self.searchText.isEmpty
+        {
+            self.dataController.filterPredicate = nil
+        }
+        else if self.regex, let regex = try? NSRegularExpression( pattern: self.searchText )
+        {
+            self.dataController.filterPredicate = NSPredicate
+            {
+                o, _ in guard let data = o as? SMCData
+                else
+                {
+                    return false
+                }
+
+                if let _ = regex.matches( in: data.keyName,  range: NSMakeRange( 0, data.keyName.count ) ).first
+                {
+                    return true
+                }
+
+                if let _ = regex.matches( in: data.typeName, range: NSMakeRange( 0, data.typeName.count ) ).first
+                {
+                    return true
+                }
+
+                return false
+            }
+        }
+        else
+        {
+            self.dataController.filterPredicate = NSPredicate( format: "keyName contains[c] %@ || typeName contains[c] %@", self.searchText, self.searchText )
+        }
+    }
+
+    @IBAction
+    public func toggleRegex( _ sender: Any? )
+    {
+        self.regex = self.regex == false
+
+        if let item = sender as? NSMenuItem
+        {
+            item.state = self.regex ? .on : .off
+        }
     }
 
     @IBAction
