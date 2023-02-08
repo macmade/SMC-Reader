@@ -4,3 +4,6 @@
 [submodule "Submodules/GitHubUpdates"]
 	path = Submodules/GitHubUpdates
 	url = https://github.com/macmade/GitHubUpdates.git
+[submodule "Submodules/SMCKit"]
+	path = Submodules/SMCKit
+	url = https://github.com/macmade/SMCKit.git
