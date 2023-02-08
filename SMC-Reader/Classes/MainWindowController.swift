@@ -1,7 +1,7 @@
 /*******************************************************************************
  * The MIT License (MIT)
  *
- * Copyright (c) 2022, Jean-David Gadina - www.xs-labs.com
+ * Copyright (c) 2023, Jean-David Gadina - www.xs-labs.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the Software), to deal
@@ -23,14 +23,13 @@
  ******************************************************************************/
 
 import Cocoa
+import SMCKit
 import UniformTypeIdentifiers
 
 class MainWindowController: NSWindowController, NSTableViewDataSource, NSTableViewDelegate
 {
     @IBOutlet private var dataController: NSArrayController!
     @IBOutlet private var tableView:      NSTableView!
-
-    private var smc = SMC()
 
     @objc private dynamic var data       = [ SMCData ]()
     @objc private dynamic var refreshing = false
@@ -64,17 +63,7 @@ class MainWindowController: NSWindowController, NSTableViewDataSource, NSTableVi
                 NSSortDescriptor( key: "key", ascending: true ),
             ]
 
-        do
-        {
-            try self.smc.open()
-            self.refresh( nil )
-        }
-        catch
-        {
-            NSAlert( error: error ).runModal()
-            NSApp.terminate( nil )
-        }
-
+        self.refresh( nil )
         self.tableView.setDraggingSourceOperationMask( .copy, forLocal: false )
     }
 
@@ -142,9 +131,11 @@ class MainWindowController: NSWindowController, NSTableViewDataSource, NSTableVi
 
         self.refreshing = true
 
-        self.smc.readAllKeys
+        DispatchQueue.global( qos: .userInitiated ).async
         {
-            data in DispatchQueue.main.async
+            let data = SMC.shared.readAllKeys()
+
+            DispatchQueue.main.async
             {
                 self.data       = data
                 self.refreshing = false
@@ -198,7 +189,7 @@ class MainWindowController: NSWindowController, NSTableViewDataSource, NSTableVi
         guard let items  = self.dataController.content as? [ SMCData ]
         else
         {
-            throw NSError( title: "Cannot Export Items", message: "Cannot retrieve items to export." )
+            throw SMCHelper.error( title: "Cannot Export Items", message: "Cannot retrieve items to export.", code: 0 )
         }
 
         let lines: [ String ] = items.compactMap { $0.description }
@@ -206,7 +197,7 @@ class MainWindowController: NSWindowController, NSTableViewDataSource, NSTableVi
         guard let data = lines.joined( separator: "\n" ).data( using: .utf8 )
         else
         {
-            throw NSError( title: "Cannot Export Items", message: "Cannot create UTF-8 data from text." )
+            throw SMCHelper.error( title: "Cannot Export Items", message: "Cannot create UTF-8 data from text.", code: 0 )
         }
 
         try data.write( to: url )

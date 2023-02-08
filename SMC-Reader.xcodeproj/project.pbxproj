@@ -7,24 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		058B8E0D2994241000263FE9 /* SMCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058B8E082994240100263FE9 /* SMCKit.framework */; };
+		058B8E0E2994241000263FE9 /* SMCKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 058B8E082994240100263FE9 /* SMCKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		058B8E10299424DA00263FE9 /* SMCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058B8E0F299424DA00263FE9 /* SMCData.swift */; };
 		05BD469E289ACB9E00F4FF16 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD469D289ACB9E00F4FF16 /* ApplicationDelegate.swift */; };
 		05BD46A3289ACB9E00F4FF16 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BD46A1289ACB9E00F4FF16 /* MainMenu.xib */; };
 		05BD46EA289ACF2900F4FF16 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46E9289ACF2900F4FF16 /* MainWindowController.swift */; };
 		05BD46ED289ACF9E00F4FF16 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BD46EF289ACF9E00F4FF16 /* MainWindowController.xib */; };
 		05BD46F2289ACFD900F4FF16 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05BD46F0289ACFD900F4FF16 /* AboutWindowController.xib */; };
 		05BD46F4289ACFDF00F4FF16 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46F3289ACFDF00F4FF16 /* AboutWindowController.swift */; };
-		05BD46F7289ADF2800F4FF16 /* SMCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46F6289ADF2800F4FF16 /* SMCData.swift */; };
-		05BD46FD289AF1BB00F4FF16 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD46FC289AF1BB00F4FF16 /* NSError.swift */; };
-		05BD4701289AF37200F4FF16 /* SMC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4700289AF37200F4FF16 /* SMC.m */; };
-		05BD4732289C58AE00F4FF16 /* NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4731289C58AE00F4FF16 /* NSString.swift */; };
-		05BD4738289C5BD800F4FF16 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4737289C5BD800F4FF16 /* String.swift */; };
-		05BD473A289C61BB00F4FF16 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BD4739289C61BB00F4FF16 /* Data.swift */; };
 		05BD4740289D081700F4FF16 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 05BD473F289D081700F4FF16 /* Icon.icns */; };
 		05BD4758289EAEDA00F4FF16 /* GitHubUpdates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05BD4752289EAECD00F4FF16 /* GitHubUpdates.framework */; };
 		05BD475A289EAEE500F4FF16 /* GitHubUpdates.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05BD4752289EAECD00F4FF16 /* GitHubUpdates.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		058B8E072994240100263FE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 058B8E002994240000263FE9 /* SMCKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05BD7282299275AB00CF4FD7;
+			remoteInfo = SMCKit;
+		};
+		058B8E092994240100263FE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 058B8E002994240000263FE9 /* SMCKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05BD736A2992D23800CF4FD7;
+			remoteInfo = SMC;
+		};
+		058B8E0B2994240100263FE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 058B8E002994240000263FE9 /* SMCKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05BD73802992D35900CF4FD7;
+			remoteInfo = "smc-dump";
+		};
 		05BD4751289EAECD00F4FF16 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 05BD474C289EAECD00F4FF16 /* GitHubUpdates.xcodeproj */;
@@ -56,12 +74,15 @@
 			dstSubfolderSpec = 10;
 			files = (
 				05BD475A289EAEE500F4FF16 /* GitHubUpdates.framework in CopyFiles */,
+				058B8E0E2994241000263FE9 /* SMCKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		058B8E002994240000263FE9 /* SMCKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SMCKit.xcodeproj; path = Submodules/SMCKit/SMCKit.xcodeproj; sourceTree = "<group>"; };
+		058B8E0F299424DA00263FE9 /* SMCData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMCData.swift; sourceTree = "<group>"; };
 		05BD469A289ACB9E00F4FF16 /* SMC Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SMC Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05BD469D289ACB9E00F4FF16 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		05BD46A2289ACB9E00F4FF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -120,15 +141,6 @@
 		05BD46EE289ACF9E00F4FF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainWindowController.xib; sourceTree = "<group>"; };
 		05BD46F1289ACFD900F4FF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AboutWindowController.xib; sourceTree = "<group>"; };
 		05BD46F3289ACFDF00F4FF16 /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
-		05BD46F6289ADF2800F4FF16 /* SMCData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCData.swift; sourceTree = "<group>"; };
-		05BD46FC289AF1BB00F4FF16 /* NSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
-		05BD46FE289AF37200F4FF16 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		05BD46FF289AF37200F4FF16 /* SMC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMC.h; sourceTree = "<group>"; };
-		05BD4700289AF37200F4FF16 /* SMC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SMC.m; sourceTree = "<group>"; };
-		05BD4729289C10F400F4FF16 /* SMC-Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SMC-Internal.h"; sourceTree = "<group>"; };
-		05BD4731289C58AE00F4FF16 /* NSString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSString.swift; sourceTree = "<group>"; };
-		05BD4737289C5BD800F4FF16 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		05BD4739289C61BB00F4FF16 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		05BD473F289D081700F4FF16 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		05BD474C289EAECD00F4FF16 /* GitHubUpdates.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GitHubUpdates.xcodeproj; path = Submodules/GitHubUpdates/GitHubUpdates.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,18 +151,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				05BD4758289EAEDA00F4FF16 /* GitHubUpdates.framework in Frameworks */,
+				058B8E0D2994241000263FE9 /* SMCKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		058B8E012994240000263FE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				058B8E082994240100263FE9 /* SMCKit.framework */,
+				058B8E0A2994240100263FE9 /* libSMC.a */,
+				058B8E0C2994240100263FE9 /* smc-dump */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		05BD4691289ACB9E00F4FF16 = {
 			isa = PBXGroup;
 			children = (
 				05BD46AA289ACC2F00F4FF16 /* README.md */,
 				05BD46E7289ACD6400F4FF16 /* CODE_OF_CONDUCT.md */,
 				05BD46E6289ACD6400F4FF16 /* LICENSE */,
+				058B8E002994240000263FE9 /* SMCKit.xcodeproj */,
 				05BD474C289EAECD00F4FF16 /* GitHubUpdates.xcodeproj */,
 				05BD46AC289ACC4600F4FF16 /* xcconfig */,
 				05BD469C289ACB9E00F4FF16 /* SMC-Reader */,
@@ -173,7 +197,6 @@
 				05BD46E4289ACC4B00F4FF16 /* Classes */,
 				05BD46E5289ACD2800F4FF16 /* UI */,
 				05BD46E8289ACD7900F4FF16 /* Info.plist */,
-				05BD46FE289AF37200F4FF16 /* Bridging-Header.h */,
 				05BD46A4289ACB9E00F4FF16 /* SMC-Reader.entitlements */,
 			);
 			path = "SMC-Reader";
@@ -310,15 +333,8 @@
 			children = (
 				05BD46F3289ACFDF00F4FF16 /* AboutWindowController.swift */,
 				05BD469D289ACB9E00F4FF16 /* ApplicationDelegate.swift */,
-				05BD4739289C61BB00F4FF16 /* Data.swift */,
 				05BD46E9289ACF2900F4FF16 /* MainWindowController.swift */,
-				05BD46FC289AF1BB00F4FF16 /* NSError.swift */,
-				05BD4731289C58AE00F4FF16 /* NSString.swift */,
-				05BD4729289C10F400F4FF16 /* SMC-Internal.h */,
-				05BD46FF289AF37200F4FF16 /* SMC.h */,
-				05BD4700289AF37200F4FF16 /* SMC.m */,
-				05BD46F6289ADF2800F4FF16 /* SMCData.swift */,
-				05BD4737289C5BD800F4FF16 /* String.swift */,
+				058B8E0F299424DA00263FE9 /* SMCData.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -405,6 +421,10 @@
 					ProductGroup = 05BD474D289EAECD00F4FF16 /* Products */;
 					ProjectRef = 05BD474C289EAECD00F4FF16 /* GitHubUpdates.xcodeproj */;
 				},
+				{
+					ProductGroup = 058B8E012994240000263FE9 /* Products */;
+					ProjectRef = 058B8E002994240000263FE9 /* SMCKit.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -414,6 +434,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		058B8E082994240100263FE9 /* SMCKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SMCKit.framework;
+			remoteRef = 058B8E072994240100263FE9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		058B8E0A2994240100263FE9 /* libSMC.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSMC.a;
+			remoteRef = 058B8E092994240100263FE9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		058B8E0C2994240100263FE9 /* smc-dump */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "smc-dump";
+			remoteRef = 058B8E0B2994240100263FE9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		05BD4752289EAECD00F4FF16 /* GitHubUpdates.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -471,14 +512,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				05BD46F4289ACFDF00F4FF16 /* AboutWindowController.swift in Sources */,
-				05BD46F7289ADF2800F4FF16 /* SMCData.swift in Sources */,
+				058B8E10299424DA00263FE9 /* SMCData.swift in Sources */,
 				05BD46EA289ACF2900F4FF16 /* MainWindowController.swift in Sources */,
-				05BD4701289AF37200F4FF16 /* SMC.m in Sources */,
-				05BD4732289C58AE00F4FF16 /* NSString.swift in Sources */,
 				05BD469E289ACB9E00F4FF16 /* ApplicationDelegate.swift in Sources */,
-				05BD4738289C5BD800F4FF16 /* String.swift in Sources */,
-				05BD473A289C61BB00F4FF16 /* Data.swift in Sources */,
-				05BD46FD289AF1BB00F4FF16 /* NSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,7 +587,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.SMC-Reader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SMC-Reader/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -572,7 +607,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.SMC-Reader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SMC-Reader/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
